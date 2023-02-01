@@ -1,0 +1,73 @@
+.productPage{
+
+  &__image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 245px;
+    width: 100%;
+
+    & img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content{
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    margin-top: 100px;
+    padding: 35px 75px 50px 75px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 35px;
+  }
+
+  &__title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 50px;
+  }
+
+  &__description{
+    text-align: left;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+  }
+
+  &__link{
+    display: flex;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #363636;
+    text-align: left;
+    margin-left: 75px;
+
+    &::before {
+      content: url("../../assets/img/arrow.svg");
+      margin-right: 6px;
+      width: 12px;
+      height: 10px;
+      display: inline-block;
+      transform: rotateX(0deg) rotateY(180deg);
+      transition: .3s linear;
+    }
+
+    &:hover{
+      &::before{
+        margin-left: -7px;
+        margin-right: 13px;
+      }
+    }
+  }
+}
