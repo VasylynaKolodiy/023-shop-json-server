@@ -4,7 +4,10 @@ export interface IProducts {
   price: number,
   description: string,
   category: string,
-  images: [string]
+  images: string[],
+  rating: number,
+  stock: number,
+  text: string
 }
 
 export interface ICategories {

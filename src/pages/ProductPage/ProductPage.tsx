@@ -13,7 +13,7 @@ const ProductPage = () => {
         ? <h2>Loading...</h2>
         : <>
           <div className='productPage__image'>
-            <img src={data?.images[0]} alt='Product theme'/>
+            <img src={data?.images[0]} alt={data?.title}/>
           </div>
 
           <div className='productPage__content'>
@@ -22,6 +22,12 @@ const ProductPage = () => {
             <p className='productPage__description'>
               {data?.description}
             </p>
+
+            <p
+              className='productPage__text'
+              dangerouslySetInnerHTML={{__html: data?.text as string}}
+            />
+
           </div>
           <Link className='productPage__link' to='/'>Back to homepage</Link>
         </>
