@@ -3264,14 +3264,8 @@
   ],
   "categories": [
     {
-      "id": 0,
-      "name": "",
-      "visibleName": "Категорія",
-      "image": ""
-    },
-    {
       "id": 1,
-      "name": "",
+      "name": "all products",
       "visibleName": "Всі товари",
       "image": ""
     },

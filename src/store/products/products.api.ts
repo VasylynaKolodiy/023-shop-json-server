@@ -17,8 +17,24 @@ export const productsApi = createApi({
       query: (id: string) => ({
         url: `/products/${id}`,
       })
-    })
+    }),
+    getCategories: build.query({
+      query: () => ({
+        url: '/categories',
+      })
+    }),
+    filterProductsByCategory: build.query({
+      query: (name: string) => ({
+        url: `/products/?category_like=${name}`,
+      })
+    }),
+
   })
 })
 
-export const {useGetProductsQuery, useGetDetailProductQuery} = productsApi
+export const {
+  useGetProductsQuery,
+  useGetDetailProductQuery,
+  useGetCategoriesQuery,
+  useFilterProductsByCategoryQuery
+} = productsApi

@@ -9,6 +9,8 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/:id' element={<ProductPage/>}/>
+        <Route path='/categories' element={<ProductPage/>}/>
+        <Route path='/categories/:categoryName' element={<ProductPage/>}/>
       </Routes>
     </div>
   );
