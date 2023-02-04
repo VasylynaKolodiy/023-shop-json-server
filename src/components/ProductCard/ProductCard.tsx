@@ -10,6 +10,7 @@ interface IProductCard {
 }
 
 const ProductCard: React.FC<IProductCard> = ({product, setCatName}) => {
+
   return (
     <div className='productCard'>
 

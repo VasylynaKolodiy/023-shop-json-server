@@ -14,10 +14,10 @@ const SidebarCategories: React.FC<ISidebarCategories> = ({categories, catName, s
       <h4 className='sidebar__title' >Categories:</h4>
       {categories.map((category) =>
         <div
-          className={`sidebar__category ${catName.replace('all products', '') === category.name.replace('all products', '') ? 'active' : ''}`}
+          className={`sidebar__category ${catName === category.name ? 'active' : ''}`}
           onClick={() => setCatName(category.name)}
           key={category.id}
-        >{category.name}</div>
+        >{category.visibleName}</div>
       )}
     </aside>
   );

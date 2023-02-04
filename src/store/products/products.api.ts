@@ -25,7 +25,7 @@ export const productsApi = createApi({
     }),
     filterProductsByCategory: build.query({
       query: (name: string) => ({
-        url: `/products/?category_like=${name}`,
+        url: name ? `/products/?category=${name}` : '/products'
       })
     }),
 

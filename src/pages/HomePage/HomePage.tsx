@@ -13,7 +13,7 @@ import SidebarCategories from "../../components/SidebarCategories/SidebarCategor
 
 const HomePage = () => {
   const [catName, setCatName] = useState('')
-  const {isFetching, data: products = []} = useFilterProductsByCategoryQuery(String(catName.replace('all products', '')), {refetchOnMountOrArgChange: true});
+  const {isFetching, data: products = []} = useFilterProductsByCategoryQuery(String(catName), {refetchOnMountOrArgChange: true});
   const [filteredProducts, setFilteredProducts] = useState<IProducts[]>(products);
 
   let [pageNumber, setPageNumber] = useState<number>(1);

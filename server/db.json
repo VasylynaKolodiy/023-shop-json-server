@@ -3265,43 +3265,43 @@
   "categories": [
     {
       "id": 1,
-      "name": "all products",
-      "visibleName": "Всі товари",
+      "name": "",
+      "visibleName": "all products",
       "image": ""
     },
     {
       "id": 2,
       "name": "electronics",
-      "visibleName": "Електроніка",
+      "visibleName": "electronics",
       "image": "https://api.lorem.space/image/watch?w=640&h=480&r=768"
     },
     {
       "id": 3,
       "name": "furniture",
-      "visibleName": "Меблі",
+      "visibleName": "furniture",
       "image": "https://api.lorem.space/image/furniture?w=640&h=480&r=5582"
     },
     {
       "id": 4,
       "name": "shoes",
-      "visibleName": "Взуття",
+      "visibleName": "shoes",
       "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592"
     },
     {
       "id": 5,
       "name": "others",
-      "visibleName": "Різне",
+      "visibleName": "others",
       "image": "https://api.lorem.space/image?w=640&h=480&r=5023"
     },
     {
       "id": 6,
       "name": "clothes",
-      "visibleName": "Одяг",
+      "visibleName": "clothes",
       "image": "https://api.lorem.space/image?w=640&h=480&r=5023"
     },
     {
       "name": "eat",
-      "visibleName": "Їжа",
+      "visibleName": "eat",
       "image": "https://kartinkin.net/uploads/posts/2021-07/1627425836_11-kartinkin-com-p-raznaya-yeda-yeda-krasivo-foto-13.jpg",
       "id": 7
     }
