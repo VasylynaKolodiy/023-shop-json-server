@@ -1,13 +1,17 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {IProducts} from "../../models/Interfaces";
+import {LIMIT} from '../../constants'
+import {BaseQueryMeta} from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 
 export const productsApi = createApi({
+
   reducerPath: 'products/Api',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3002',
   }),
 
   endpoints: build => ({
+
     getProducts: build.query({
       query: () => ({
         url: '/products',
@@ -24,17 +28,19 @@ export const productsApi = createApi({
       })
     }),
     filterProductsByCategory: build.query({
-      query: (name: string) => ({
-        url: name ? `/products/?category=${name}` : '/products'
-      })
-    }),
+      query: ({catName, pageNumber}) => ({
+        url: `/products?${catName ? 'category=' + catName : ''}&_limit=${LIMIT}&_page=${pageNumber}`
+      }),
 
+      transformResponse(response: IProducts[], meta:BaseQueryMeta<any>) {
+        return {data: response, totalCount: (meta.response.headers?.get('X-Total-Count'))}
+      }
+    }),
   })
 })
-
 export const {
   useGetProductsQuery,
   useGetDetailProductQuery,
   useGetCategoriesQuery,
-  useFilterProductsByCategoryQuery
+  useFilterProductsByCategoryQuery,
 } = productsApi

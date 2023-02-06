@@ -11,12 +11,22 @@ import './HomePage.scss'
 import {LIMIT} from "../../constants";
 import SidebarCategories from "../../components/SidebarCategories/SidebarCategories";
 
-const HomePage = () => {
-  const [catName, setCatName] = useState('')
-  const {isFetching, data: products = []} = useFilterProductsByCategoryQuery(String(catName), {refetchOnMountOrArgChange: true});
-  const [filteredProducts, setFilteredProducts] = useState<IProducts[]>(products);
+interface IHomePage {
+  data: IProducts[];
+  totalCount: number
+}
 
+const HomePage = () => {
   let [pageNumber, setPageNumber] = useState<number>(1);
+  const [catName, setCatName] = useState('')
+  const {isFetching, data: products} = useFilterProductsByCategoryQuery({catName: catName, pageNumber: pageNumber}, {refetchOnMountOrArgChange: true});
+  console.log(products?.totalCount, 'totalCount!!!')
+
+  // const [filteredProducts, setFilteredProducts] = useState<IProducts[]>(products.data);
+  // @ts-ignore
+  const filteredProducts: IProducts[] = products.data;
+
+
   const TOTAL_COUNT = filteredProducts.length;
   let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT);
 
@@ -24,12 +34,12 @@ const HomePage = () => {
 
   return (
     <main className='homePage'>
-      <Filter
-        products={products}
-        filteredProductsLength={filteredProducts.length}
-        setFilteredProducts={setFilteredProducts}
-        setPageNumber={setPageNumber}
-      />
+      {/*<Filter*/}
+      {/*  products={products}*/}
+      {/*  filteredProductsLength={filteredProducts.length}*/}
+      {/*  setFilteredProducts={setFilteredProducts}*/}
+      {/*  setPageNumber={setPageNumber}*/}
+      {/*/>*/}
 
 
       <div className='homePage__inner'>
