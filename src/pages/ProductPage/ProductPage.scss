@@ -1,11 +1,17 @@
 .productPage{
+  text-align: left;
 
-  &__image{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 245px;
-    width: 100%;
+  &__inner{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  &__images{
+    height: auto;
+    width: 45%;
+    margin-bottom: 180px;
 
     & img{
       width: 100%;
@@ -15,23 +21,30 @@
   }
 
   &__content{
+    width: 45%;
     background: #FFFFFF;
     border: 1px solid #EAEAEA;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
-    margin-top: 100px;
-    padding: 35px 75px 50px 75px;
+    padding: 35px;
     position: relative;
     z-index: 10;
     margin-bottom: 35px;
   }
 
+  &__group{
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
   &__title{
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 24px;
     line-height: 29px;
-    margin-bottom: 50px;
   }
 
   &__description{
@@ -43,15 +56,19 @@
     color: #000000;
   }
 
+  &__buyButton{
+    margin-bottom: 20px !important;
+  }
+
   &__link{
     display: flex;
+    font-weight: bold;
     font-style: normal;
-    font-weight: 700;
     font-size: 16px;
     line-height: 150%;
     color: #363636;
     text-align: left;
-    margin-left: 75px;
+    margin-bottom: 30px;
 
     &::before {
       content: url("../../assets/img/arrow.svg");
@@ -69,5 +86,23 @@
         margin-right: 13px;
       }
     }
+  }
+
+  .slick-dots{
+    height: 100px;
+    padding-top: 100px;
+    //display: flex !important;
+    //align-items: flex-start !important;
+    //justify-content: space-between !important;
+  }
+
+  .slick-dots li{
+    height: 100px;
+    width: auto;
+  }
+
+  .slick-dots li div{
+    height: 100px;
+    width: auto;
   }
 }

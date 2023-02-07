@@ -3314,190 +3314,72 @@
       "name": "Jhon",
       "role": "customer",
       "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=174",
-      "basket": {
-        "item": []
-      },
-      "GeneralsumInBasket": 0,
+      "basket": [
+        {
+          "id": 10,
+          "title": "Small Concrete Cheese",
+          "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
+          "price": 957,
+          "col": 1
+        },
+        {
+          "id": 9,
+          "title": "MackBook Pro 2019 Pro 16\"",
+          "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
+          "price": 149000,
+          "col": 1
+        }
+      ],
+      "GeneralsumInBasket": 149957,
       "history": {
-        "Wed Oct 19 2022 14:47:27 GMT+0300 (Москва, стандартное время)": {
-          "0": {
+        "Wed Oct 19 2022 14:47:27 GMT+0300 (Москва, стандартное время)": [
+          {
             "id": 10,
             "title": "Small Concrete Cheese",
             "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
             "price": 957,
             "col": 3
           },
-          "1": {
+          {
             "id": 9,
             "title": "Handmade Metal Pizza",
             "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
             "price": 793,
             "col": 1
           },
-          "2": {
+          {
             "id": 14,
             "title": "Handcrafted Fresh Tuna",
             "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=7668",
             "price": 689,
             "col": 2
           }
-        },
-        "Wed Oct 19 2022 14:47:43 GMT+0300 (Москва, стандартное время)": {
-          "0": {
+        ],
+        "Wed Oct 19 2022 14:47:43 GMT+0300 (Москва, стандартное время)": [
+          {
             "id": 8,
             "title": "Generic Granite Chicken",
             "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
             "price": 20000,
             "col": 9
           }
-        },
-        "Wed Oct 19 2022 18:10:13 GMT+0300 (Москва, стандартное время)": {
-          "0": {
+        ],
+        "Wed Oct 19 2022 18:10:13 GMT+0300 (Москва, стандартное время)": [
+          {
             "id": 9,
             "title": "Handmade Metal Pizza",
             "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
             "price": 793,
             "col": 1
           },
-          "1": {
+          {
             "id": 10,
             "title": "Small Concrete Cheese",
             "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
             "price": 957,
             "col": 1
           }
-        },
-        "Wed Oct 19 2022 18:19:35 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 14,
-            "title": "Handcrafted Fresh Tuna",
-            "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=7668",
-            "price": 689,
-            "col": 1
-          },
-          "1": {
-            "id": 15,
-            "title": "Ergonomic Fresh Gloves",
-            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=5521",
-            "price": 719,
-            "col": 1
-          }
-        },
-        "Fri Oct 21 2022 09:25:47 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 8,
-            "title": "Generic Granite Chicken",
-            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
-            "price": 20000,
-            "col": 3
-          },
-          "1": {
-            "id": 9,
-            "title": "Handmade Metal Pizza",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-            "price": 793,
-            "col": 3
-          },
-          "2": {
-            "id": 10,
-            "title": "Small Concrete Cheese",
-            "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
-            "price": 957,
-            "col": 3
-          },
-          "3": {
-            "id": 11,
-            "title": "Generic Wooden Chips",
-            "img": "https://api.lorem.space/image?w=640&h=480&r=3878",
-            "price": 962,
-            "col": 1
-          },
-          "4": {
-            "id": 16,
-            "title": "Sleek Steel Ball",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=5183",
-            "price": 783,
-            "col": 2
-          },
-          "5": {
-            "id": 15,
-            "title": "Ergonomic Fresh Gloves",
-            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=5521",
-            "price": 719,
-            "col": 2
-          },
-          "6": {
-            "id": 14,
-            "title": "Handcrafted Fresh Tuna",
-            "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=7668",
-            "price": 689,
-            "col": 1
-          },
-          "7": {
-            "id": 13,
-            "title": "Sleek Cotton Pizza",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=7842",
-            "price": 515,
-            "col": 1
-          }
-        },
-        "Fri Oct 21 2022 16:13:23 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 15,
-            "title": "Ergonomic Fresh Gloves",
-            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=5521",
-            "price": 719,
-            "col": 1
-          },
-          "1": {
-            "id": 9,
-            "title": "Handmade Metal Pizza",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-            "price": 793,
-            "col": 1
-          }
-        },
-        "Tue Oct 25 2022 15:03:13 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 8,
-            "title": "Luxury furniture",
-            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
-            "price": 19999,
-            "col": 10
-          },
-          "1": {
-            "id": 9,
-            "title": "MackBook Pro 2019 Pro 16\"",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-            "price": 139999,
-            "col": 1
-          }
-        },
-        "Tue Oct 25 2022 15:03:53 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 237,
-            "title": "Iphone 14",
-            "img": "https://www.iguides.ru/upload/medialibrary/471/4719e79f32db53ea4db110217c00fcdf.jpeg",
-            "price": 76000,
-            "col": 1
-          }
-        },
-        "Tue Oct 25 2022 15:26:54 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 10,
-            "title": "Small Concrete Cheese",
-            "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
-            "price": 957,
-            "col": 1
-          },
-          "1": {
-            "id": 9,
-            "title": "MackBook Pro 2019 Pro 16\"",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-            "price": 139999,
-            "col": 1
-          }
-        }
+        ]
       }
     },
     {
@@ -3507,52 +3389,25 @@
       "name": "Admin",
       "role": "admin",
       "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": {
-        "item": []
-      },
+      "basket": [],
       "GeneralsumInBasket": 0,
       "history": {
-        "Sat Oct 22 2022 08:52:34 GMT+0300 (Москва, стандартное время)": {
-          "0": {
+        "Wed Oct 19 2022 18:10:13 GMT+0300 (Москва, стандартное время)": [
+          {
             "id": 9,
             "title": "Handmade Metal Pizza",
             "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
             "price": 793,
-            "col": 4
+            "col": 1
           },
-          "1": {
-            "id": 13,
-            "title": "Sleek Cotton Pizza",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=7842",
-            "price": 515,
-            "col": 5
-          },
-          "2": {
-            "id": 8,
-            "title": "Generic Granite Chicken",
-            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
-            "price": 20000,
-            "col": 4
-          }
-        },
-        "Sat Oct 22 2022 10:54:31 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 8,
-            "title": "Generic Granite Chicken",
-            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
-            "price": 17999,
-            "col": 2
-          }
-        },
-        "Mon Oct 24 2022 15:38:57 GMT+0300 (Москва, стандартное время)": {
-          "0": {
-            "id": 237,
-            "title": "Iphone 14",
-            "img": "https://www.iguides.ru/upload/medialibrary/471/4719e79f32db53ea4db110217c00fcdf.jpeg",
-            "price": 76000,
+          {
+            "id": 10,
+            "title": "Small Concrete Cheese",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
+            "price": 957,
             "col": 1
           }
-        }
+        ]
       }
     },
     {
@@ -3561,19 +3416,18 @@
       "name": "skaterpunisher",
       "role": "admin",
       "avatar": "https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg",
-      "basket": {
-        "item": []
-      },
+      "basket": [],
       "history": {
-        "Tue Oct 25 2022 12:25:27 GMT+0300 (Москва, стандартное время)": {
-          "0": {
+        "Tue Oct 25 2022 12:25:27 GMT+0300 (Москва, стандартное время)": [
+          {
             "id": 9,
             "title": "MackBook Pro 2019 Pro 16\"",
             "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
             "price": 139999,
             "col": 5
           }
-        }
+
+        ]
       },
       "id": 4,
       "GeneralsumInBasket": 0
@@ -3584,19 +3438,17 @@
       "name": "artem",
       "role": "customer",
       "avatar": "https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg",
-      "basket": {
-        "item": []
-      },
+      "basket": [],
       "history": {
-        "Tue Oct 25 2022 15:31:58 GMT+0300 (Москва, стандартное время)": {
-          "0": {
+        "Tue Oct 25 2022 15:31:58 GMT+0300 (Москва, стандартное время)": [
+          {
             "id": 239,
             "title": "Пицца",
             "img": "https://braun-russia.ru/image/cache/data/products/oralb/mickey-pc500/mickey500-3-1000x1000.jpg",
             "price": 899,
             "col": 4
           }
-        }
+        ]
       },
       "id": 5,
       "GeneralsumInBasket": 0

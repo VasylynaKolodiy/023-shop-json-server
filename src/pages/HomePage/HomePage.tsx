@@ -4,59 +4,50 @@ import {
   useFilterProductsByCategoryQuery,
   useGetCategoriesQuery,
 } from '../../store/products/products.api'
-import Filter from "../../components/Filter/Filter";
 import ProductsList from "../../components/ProductsList/ProductsList";
-import {IProducts} from "../../models/Interfaces";
 import './HomePage.scss'
 import {LIMIT} from "../../constants";
 import SidebarCategories from "../../components/SidebarCategories/SidebarCategories";
 
-interface IHomePage {
-  data: IProducts[];
-  totalCount: number
-}
-
 const HomePage = () => {
   let [pageNumber, setPageNumber] = useState<number>(1);
   const [catName, setCatName] = useState('')
-  const {isFetching, data: products} = useFilterProductsByCategoryQuery({catName: catName, pageNumber: pageNumber}, {refetchOnMountOrArgChange: true});
-  console.log(products?.totalCount, 'totalCount!!!')
-
-  // const [filteredProducts, setFilteredProducts] = useState<IProducts[]>(products.data);
-  // @ts-ignore
-  const filteredProducts: IProducts[] = products.data;
-
-
-  const TOTAL_COUNT = filteredProducts.length;
-  let countOfPages = TOTAL_COUNT && Math.ceil(TOTAL_COUNT / LIMIT);
-
+  const {isFetching, data: products} = useFilterProductsByCategoryQuery({catName: catName, pageNumber: pageNumber});
+  const filteredProducts = products?.data || [];
+  const TOTAL_COUNT = products?.totalCount || 0;
+  let countOfPages = TOTAL_COUNT && Math.ceil(Number(TOTAL_COUNT) / LIMIT);
   const {data: categories = []} = useGetCategoriesQuery(null, {refetchOnMountOrArgChange: true});
 
   return (
     <main className='homePage'>
       {/*<Filter*/}
-      {/*  products={products}*/}
+      {/*  products={filteredProducts}*/}
       {/*  filteredProductsLength={filteredProducts.length}*/}
-      {/*  setFilteredProducts={setFilteredProducts}*/}
+      {/*  setFilteredProducts={()=> {}}*/}
       {/*  setPageNumber={setPageNumber}*/}
       {/*/>*/}
 
-
       <div className='homePage__inner'>
-        <SidebarCategories categories={categories} catName={catName} setCatName={setCatName}/>
+        <SidebarCategories
+          categories={categories}
+          catName={catName}
+          setCatName={setCatName}
+          setPageNumber={setPageNumber}
+        />
         {isFetching
           ? <h2>Loading...</h2>
           :
           <div className='homePage__list'>
             <ProductsList
-              productsState={filteredProducts?.slice(pageNumber * LIMIT - LIMIT, pageNumber * LIMIT)}
+              productsState={filteredProducts}
               setCatName={setCatName}
+              setPageNumber={setPageNumber}
             />
 
             {countOfPages > 1 &&
             (<Pagination
                 className='pagination'
-                count={countOfPages}
+                count={Number(countOfPages)}
                 size="large"
                 page={pageNumber}
                 onChange={(event, value) => setPageNumber(value)}

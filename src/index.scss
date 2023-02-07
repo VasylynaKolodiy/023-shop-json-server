@@ -19,6 +19,12 @@ body {
   font-style: normal;
 }
 
+ul, ol{
+  margin: 20px;
+  padding: revert;
+}
+
+
 a {
   display: inline-block;
   text-decoration: none;

@@ -5,11 +5,17 @@ import {IProducts} from "../../models/Interfaces";
 import {Rating} from "@mui/material";
 
 interface IProductCard {
-  product: IProducts
-  setCatName: (name: string) => void
+  product: IProducts,
+  setCatName: (name: string) => void,
+  setPageNumber: (page: number) => void,
 }
 
-const ProductCard: React.FC<IProductCard> = ({product, setCatName}) => {
+const ProductCard: React.FC<IProductCard> = ({product, setCatName, setPageNumber}) => {
+
+  const onClickCategory = (category: string) => {
+    setPageNumber(1);
+    setCatName(category)
+  }
 
   return (
     <div className='productCard'>
@@ -32,8 +38,9 @@ const ProductCard: React.FC<IProductCard> = ({product, setCatName}) => {
           <Rating className='productCard__rating' name="read-only" value={product.rating} size="small" readOnly/>
           <div
             className='productCard__category'
-            onClick={() => setCatName(product.category)}
-          >{product.category}
+            onClick={() => onClickCategory(product.category)}
+          >
+            {product.category}
           </div>
         </div>
       </div>

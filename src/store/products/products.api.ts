@@ -1,7 +1,9 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {IProducts} from "../../models/Interfaces";
 import {LIMIT} from '../../constants'
-import {BaseQueryMeta} from "@reduxjs/toolkit/dist/query/baseQueryTypes";
+
+type FetchBaseQueryMeta = { request: Request; response?: Response }
+
 
 export const productsApi = createApi({
 
@@ -32,8 +34,9 @@ export const productsApi = createApi({
         url: `/products?${catName ? 'category=' + catName : ''}&_limit=${LIMIT}&_page=${pageNumber}`
       }),
 
-      transformResponse(response: IProducts[], meta:BaseQueryMeta<any>) {
-        return {data: response, totalCount: (meta.response.headers?.get('X-Total-Count'))}
+      transformResponse(response: IProducts[], meta: FetchBaseQueryMeta) {
+        console.log(meta.response, 'meta.response')
+        return {data: response, totalCount: (meta.response?.headers.get('X-Total-Count'))}
       }
     }),
   })
