@@ -28,22 +28,18 @@ const ProductPage = () => {
     </div>,
   };
 
-
   return (
     <main className='productPage'>
       {isLoading
         ? <h2>Loading...</h2>
         : <>
           <Link className='productPage__link' to='/'>Back to homepage</Link>
-
           <div className='productPage__inner'>
-
             <div className='productPage__images'>
               <Slider {...settings}>
                 {data?.images.map((item, i) => <img src={item} alt='slider' key={i}/>)}
               </Slider>
             </div>
-
 
             <div className='productPage__content'>
               <div className='productPage__group'>
@@ -56,7 +52,6 @@ const ProductPage = () => {
                 <h4 className='productPage__stock'>{data?.stock} pieces</h4>
               </div>
 
-
               <Button className='productPage__buyButton' variant="outlined">
                 Buy
               </Button>
@@ -66,7 +61,6 @@ const ProductPage = () => {
               </p>
             </div>
           </div>
-
           <p
             className='productPage__text'
             dangerouslySetInnerHTML={{__html: data?.text as string}}
