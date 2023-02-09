@@ -35,9 +35,13 @@ export const productsApi = createApi({
       }),
 
       transformResponse(response: IProducts[], meta: FetchBaseQueryMeta) {
-        console.log(meta.response, 'meta.response')
         return {data: response, totalCount: (meta.response?.headers.get('X-Total-Count'))}
       }
+    }),
+    getUser: build.query({
+      query: ({email, password}) => ({
+        url: `/users?email=${email}&password=${password}`,
+      })
     }),
   })
 })
@@ -46,4 +50,5 @@ export const {
   useGetDetailProductQuery,
   useGetCategoriesQuery,
   useFilterProductsByCategoryQuery,
+  useLazyGetUserQuery,
 } = productsApi

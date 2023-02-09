@@ -3252,9 +3252,9 @@
       "description": "Вкуснейшая пицца",
       "category": "eat",
       "images": [
-        "https://braun-russia.ru/image/cache/data/products/oralb/mickey-pc500/mickey500-3-1000x1000.jpg",
-        "https://www.ochkov.net/wiki/storage/app/media/1./luchshie-elektricheskie-zvukovye-zubnye-shetki/1.jpg",
-        "https://www.ochkov.net/wiki/storage/app/media/1./luchshie-elektricheskie-zvukovye-zubnye-shetki/1.jpg"
+        "https://api.lorem.space/image?w=640&h=480&r=3878",
+        "https://api.lorem.space/image?w=640&h=480&r=3878",
+        "https://api.lorem.space/image?w=640&h=480&r=3878"
       ],
       "id": 239,
       "rating": 1,

@@ -17,17 +17,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import {useLazyGetUserQuery} from "../../store/products/products.api";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = ({event}: { event: any }) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = ({event}: { event: any }) => {
     setAnchorElUser(event.currentTarget);
@@ -41,10 +38,6 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
-  const [user, setUser] = useState('')
-
-  const [open, setOpen] = React.useState(false);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -53,6 +46,24 @@ const Header = () => {
     setOpen(false);
   };
 
+
+
+
+  const [user, setUser] = useState(false)
+  const [open, setOpen] = React.useState(false);
+  const [dataEmail, setDataEmail] = useState('')
+  const [dataPassword, setDataPassword] = useState('')
+
+  // const {data: userState} = useLazyGetUserQuery({email: dataEmail, password: dataPassword});
+  const [getUser, userState] = useLazyGetUserQuery();
+
+
+  const handleCloseLogin = () => {
+    setOpen(false);
+    getUser({email: dataEmail, password: dataPassword})
+    setUser(userState?.data)
+  };
+  console.log(user, 'user')
   return (
     <header className='header container'>
       <AppBar position="static">
@@ -77,32 +88,6 @@ const Header = () => {
               SHOP
             </Typography>
 
-            <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: {xs: 'block', md: 'none'},
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
 
             <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
               {pages.map((page) => (
@@ -150,7 +135,7 @@ const Header = () => {
               )
               : <div>
                 <MenuItem onClick={handleClickOpen}>
-                  <Typography textAlign="center">LOGIN</Typography>
+                  <Typography className='typography' textAlign="center">LOGIN</Typography>
                 </MenuItem>
 
                 <Dialog open={open} onClose={handleClose}>
@@ -168,6 +153,8 @@ const Header = () => {
                       type="email"
                       fullWidth
                       variant="standard"
+                      value={dataEmail}
+                      onChange={(event) => setDataEmail(event.target.value)}
                     />
 
                     <TextField
@@ -178,12 +165,14 @@ const Header = () => {
                       type="password"
                       fullWidth
                       variant="standard"
+                      value={dataPassword}
+                      onChange={(event) => setDataPassword(event.target.value)}
                     />
 
                   </DialogContent>
                   <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Login</Button>
+                    <Button onClick={handleCloseLogin}>Login</Button>
                   </DialogActions>
                 </Dialog>
               </div>
