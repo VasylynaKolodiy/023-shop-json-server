@@ -53,8 +53,6 @@ const Header = () => {
   const [open, setOpen] = React.useState(false);
   const [dataEmail, setDataEmail] = useState('')
   const [dataPassword, setDataPassword] = useState('')
-
-  // const {data: userState} = useLazyGetUserQuery({email: dataEmail, password: dataPassword});
   const [getUser, userState] = useLazyGetUserQuery();
 
 
