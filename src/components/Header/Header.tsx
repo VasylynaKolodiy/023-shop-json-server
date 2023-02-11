@@ -18,6 +18,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useLazyGetUserQuery} from "../../store/products/products.api";
+import {useActions} from "../../hooks/actions";
+import {useAppSelector} from "../../hooks/redux";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -47,21 +49,35 @@ const Header = () => {
   };
 
 
-
-
-  const [user, setUser] = useState(false)
   const [open, setOpen] = React.useState(false);
   const [dataEmail, setDataEmail] = useState('')
   const [dataPassword, setDataPassword] = useState('')
-  const [getUser, userState] = useLazyGetUserQuery();
+  const [getUser] = useLazyGetUserQuery();
+  const {addUser, removeUser} = useActions()
 
-
-  const handleCloseLogin = () => {
-    setOpen(false);
-    getUser({email: dataEmail, password: dataPassword})
-    setUser(userState?.data)
+  const handleCloseLogin = async () => {
+    try {
+      let result = await getUser({email: dataEmail, password: dataPassword});
+      if (result.data.length) {
+        setOpen(false);
+        addUser(result.data[0])
+      }
+    }
+    catch (err) {
+      prompt(String(err));
+    }
   };
+
+  const handleCloseLogout = (event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLLIElement>) => {
+    event.preventDefault()
+    removeUser({})
+    setAnchorElUser(null);
+  };
+
+
+  const user = useAppSelector((state) => state.auth.user);
   console.log(user, 'user')
+
   return (
     <header className='header container'>
       <AppBar position="static">
@@ -99,12 +115,12 @@ const Header = () => {
               ))}
             </Box>
 
-            {user
+            {user.email
               ? (
                 <Box sx={{flexGrow: 0}}>
                   <Tooltip title="Open settings">
                     <IconButton onClick={(event) => handleOpenUserMenu({event: event})} sx={{p: 0}}>
-                      <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
+                      <Avatar alt="Remy Sharp" src={String(user.avatar)}/>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -123,11 +139,16 @@ const Header = () => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {settings.map((setting) => (
-                      <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">{setting}</Typography>
-                      </MenuItem>
-                    ))}
+                    <MenuItem onClick={(event) => handleCloseLogout(event)}>
+                      <Typography textAlign="center">Logout</Typography>
+                    </MenuItem>
+
+
+                    {/*{settings.map((setting) => (*/}
+                    {/*  <MenuItem key={setting} onClick={handleCloseUserMenu}>*/}
+                    {/*    <Typography textAlign="center">{setting}</Typography>*/}
+                    {/*  </MenuItem>*/}
+                    {/*))}*/}
                   </Menu>
                 </Box>
               )
