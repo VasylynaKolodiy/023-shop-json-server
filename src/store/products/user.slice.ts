@@ -11,12 +11,11 @@ export const userSlice = createSlice({
   name: "userName", //????
   initialState,
   reducers: {
-    addUser(state, action: PayloadAction<IUsers>) {
-      console.log(action, 'action')
+    loginUser(state, action: PayloadAction<IUsers>) {
       state.user = action.payload
       localStorage.setItem(USR_STORAGE_KEY, JSON.stringify(state.user))
     },
-    removeUser(state, action: PayloadAction<IUsers>) {
+    logoutUser(state, action: PayloadAction<IUsers>) {
       state.user = action.payload
       localStorage.removeItem(USR_STORAGE_KEY)
     }

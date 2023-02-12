@@ -3426,7 +3426,6 @@
             "price": 139999,
             "col": 5
           }
-
         ]
       },
       "id": 4,
@@ -3452,6 +3451,17 @@
       },
       "id": 5,
       "GeneralsumInBasket": 0
+    },
+    {
+      "id": 325,
+      "email": "sadmin@mail.com",
+      "password": "admin123",
+      "name": "Assa",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
     }
   ]
 }

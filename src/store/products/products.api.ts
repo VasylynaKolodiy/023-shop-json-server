@@ -43,6 +43,13 @@ export const productsApi = createApi({
         url: `/users?email=${email}&password=${password}`,
       })
     }),
+    addUser: build.mutation({
+      query: (body) => ({
+        url: `/users`,
+        method: 'POST',
+        body,
+      })
+    }),
   })
 })
 export const {
@@ -51,4 +58,5 @@ export const {
   useGetCategoriesQuery,
   useFilterProductsByCategoryQuery,
   useLazyGetUserQuery,
+  useAddUserMutation,
 } = productsApi
