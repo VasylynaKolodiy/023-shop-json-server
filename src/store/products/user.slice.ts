@@ -20,7 +20,6 @@ export const userSlice = createSlice({
       localStorage.removeItem(USR_STORAGE_KEY)
     }
   }
-
 })
 
 export const userActions = userSlice.actions

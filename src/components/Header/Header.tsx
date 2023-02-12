@@ -20,23 +20,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {useAddUserMutation, useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
 import {useAppSelector} from "../../hooks/redux";
-import {IUsers} from "../../models/Interfaces";
+import {Link} from "react-router-dom";
 
 
 const Header = () => {
-
-  const [anchorElUser, setAnchorElUser] = useState(null);
-  const [openLogin, setOpenLogin] = React.useState(false);
-  const [openRegister, setOpenRegister] = React.useState(false);
-  const [dataEmail, setDataEmail] = useState('')
-  const [dataPassword, setDataPassword] = useState('')
-  const [dataName, setDataName] = useState('')
-  const [getUser] = useLazyGetUserQuery();
-  const {loginUser, logoutUser} = useActions()
-  const user = useAppSelector((state) => state.auth.user);
-
   const initialUser = {
-    id: new Date().getUTCMilliseconds(),
+    id: '',
     email: '',
     password: '',
     name: '',
@@ -47,40 +36,68 @@ const Header = () => {
     history: {}
   }
 
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [openLogin, setOpenLogin] = React.useState(false);
+  const [openRegister, setOpenRegister] = React.useState(false);
+  const [dataEmail, setDataEmail] = useState('')
+  const [dataPassword, setDataPassword] = useState('')
+  const [getUser] = useLazyGetUserQuery();
+  const {loginUser, logoutUser} = useActions()
+  const user = useAppSelector((state) => state.auth.user);
   const [newUser, setNewUser] = useState(initialUser)
-
-  const [addNewUser, {isError}] = useAddUserMutation();
-  const handleAddNewUser = async () => {
-    if (newUser.email) {
-      await addNewUser(newUser).unwrap()
-    }
-  };
-
-  console.log(newUser, 'NewUser')
-
+  const [addNewUser] = useAddUserMutation();
+  // const [addNewUser, {isError}] = useAddUserMutation();
 
   const handleOpenUserMenu = ({event}: { event: any }) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseLogin = async () => {
+  const handleLogin = async () => {
     try {
       let result = await getUser({email: dataEmail, password: dataPassword});
       if (result.data.length) {
         setOpenLogin(false);
         loginUser(result.data[0])
+      } else {
+        alert('No user with this email address and password was found');
       }
-    } catch (err) {
-      prompt(String(err));
-    }
+    } catch (err) {alert(String(err));}
   };
 
-  const handleCloseLogout = (event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLLIElement>) => {
+  const handleCloseLogin = () => {
+    setDataEmail('')
+    setDataPassword('')
+    setOpenLogin(false)
+  }
+
+  const handleLogout = (event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLLIElement>) => {
     event.preventDefault()
     logoutUser({})
     setAnchorElUser(null);
   };
 
+  const handleRegisterNewUser = async () => {
+    try {
+      let result = {}
+      let existUser = await getUser({email: newUser.email});
+      console.log(existUser.data, 'existUser.data')
+      if (existUser.data.length) {
+        alert('A user with this email address already exists');
+      }
+      else{
+        if (newUser.email && newUser.password && newUser.name) {
+          result = await addNewUser(newUser).unwrap()
+          loginUser(result)
+          setOpenRegister(false);
+        }
+      }
+    } catch (err) {alert(String(err));}
+  };
+
+  const handleCloseRegister = () => {
+    setNewUser({...newUser, name: '', password: '', email: ''})
+    setOpenRegister(false)
+  }
 
   return (
     <header className='header container'>
@@ -88,12 +105,13 @@ const Header = () => {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
 
-            <Typography className='logo' variant="h6" noWrap component="a" href="/">Shop</Typography>
+            <Link className='logo' to="/">Shop</Link>
 
 
             {user.email
               ? (
-                <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex', alignItems: 'center', gap: 10}}}>
+                  <div>Hello, {user.name}!</div>
                   <Tooltip title="Open settings">
                     <IconButton onClick={(event) => handleOpenUserMenu({event: event})} sx={{p: 0}}>
                       <Avatar alt="Remy Sharp" src={String(user.avatar)}/>
@@ -116,23 +134,21 @@ const Header = () => {
                     open={Boolean(anchorElUser)}
                     onClose={() => setAnchorElUser(null)}
                   >
-                    <MenuItem onClick={(event) => handleCloseLogout(event)}>
+                    <MenuItem onClick={(event) => handleLogout(event)}>
                       <Typography textAlign="center">Logout</Typography>
                     </MenuItem>
                   </Menu>
                 </Box>
               )
               : <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                <MenuItem>
-                  <Typography className='typography' textAlign="center"
-                              onClick={() => setOpenRegister(true)}>Register</Typography>
+                <MenuItem onClick={() => setOpenRegister(true)}>
+                  <Typography className='typography' textAlign="center">Register</Typography>
                 </MenuItem>
-                <MenuItem>
-                  <Typography className='typography' textAlign="center"
-                              onClick={() => setOpenLogin(true)}>Login</Typography>
+                <MenuItem onClick={() => setOpenLogin(true)}>
+                  <Typography className='typography' textAlign="center">Login</Typography>
                 </MenuItem>
 
-                <Dialog open={openLogin} onClose={() => setOpenLogin(false)}>
+                <Dialog open={openLogin} onClose={() => handleCloseLogin()}>
                   <DialogTitle>Login</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
@@ -164,13 +180,13 @@ const Header = () => {
                     />
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={() => setOpenLogin(false)}>Cancel</Button>
-                    <Button onClick={handleCloseLogin}>Login</Button>
+                    <Button onClick={() => handleCloseLogin()}>Cancel</Button>
+                    <Button onClick={handleLogin}>Login</Button>
                   </DialogActions>
                 </Dialog>
 
 
-                <Dialog open={openRegister} onClose={() => setOpenRegister(false)}>
+                <Dialog open={openRegister} onClose={() => handleCloseRegister()}>
                   <DialogTitle>Register</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
@@ -186,7 +202,7 @@ const Header = () => {
                       fullWidth
                       variant="standard"
                       value={newUser.name}
-                      onChange={(event) => setNewUser({...newUser, name:event.target.value})}
+                      onChange={(event) => setNewUser({...newUser, name: event.target.value})}
                     />
 
                     <TextField
@@ -198,7 +214,7 @@ const Header = () => {
                       fullWidth
                       variant="standard"
                       value={newUser.email}
-                      onChange={(event) => setNewUser({...newUser, email:event.target.value})}
+                      onChange={(event) => setNewUser({...newUser, email: event.target.value})}
                     />
 
                     <TextField
@@ -210,12 +226,12 @@ const Header = () => {
                       fullWidth
                       variant="standard"
                       value={newUser.password}
-                      onChange={(event) => setNewUser({...newUser, password:event.target.value})}
+                      onChange={(event) => setNewUser({...newUser, password: event.target.value})}
                     />
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={() => setOpenRegister(false)}>Cancel</Button>
-                    <Button onClick={() => handleAddNewUser()}>Register</Button>
+                    <Button onClick={() => handleCloseRegister()}>Cancel</Button>
+                    <Button onClick={() => handleRegisterNewUser()}>Register</Button>
                   </DialogActions>
                 </Dialog>
               </Box>

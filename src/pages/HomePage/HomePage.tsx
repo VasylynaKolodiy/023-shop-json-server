@@ -34,6 +34,7 @@ const HomePage = () => {
           setCatName={setCatName}
           setPageNumber={setPageNumber}
         />
+
         {isFetching
           ? <h2>Loading...</h2>
           :

@@ -40,7 +40,7 @@ export const productsApi = createApi({
     }),
     getUser: build.query({
       query: ({email, password}) => ({
-        url: `/users?email=${email}&password=${password}`,
+        url: `/users?email=${email}${password ? '&password='+password : ''}`,
       })
     }),
     addUser: build.mutation({
