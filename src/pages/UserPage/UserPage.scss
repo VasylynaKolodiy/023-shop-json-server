@@ -1,3 +1,11 @@
 .userPage{
+  &__title{
+    margin-bottom: 30px;
+  }
 
+  &__productList{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
 }

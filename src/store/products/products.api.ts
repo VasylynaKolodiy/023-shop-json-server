@@ -4,7 +4,6 @@ import {LIMIT} from '../../constants'
 
 type FetchBaseQueryMeta = { request: Request; response?: Response }
 
-
 export const productsApi = createApi({
 
   reducerPath: 'products/Api',

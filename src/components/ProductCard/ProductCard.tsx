@@ -4,13 +4,13 @@ import './ProductCard.scss';
 import {IProducts} from "../../models/Interfaces";
 import {Rating} from "@mui/material";
 
-interface IProductCard {
+interface IProductCardProps {
   product: IProducts,
   setCatName: (name: string) => void,
   setPageNumber: (page: number) => void,
 }
 
-const ProductCard: React.FC<IProductCard> = ({product, setCatName, setPageNumber}) => {
+const ProductCard: React.FC<IProductCardProps> = ({product, setCatName, setPageNumber}) => {
 
   const onClickCategory = (category: string) => {
     setPageNumber(1);

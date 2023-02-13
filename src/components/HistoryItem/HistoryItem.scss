@@ -1,0 +1,50 @@
+.historyItem {
+  border: 1px solid #EAEAEA;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+  cursor: pointer;
+
+  p{
+    margin-bottom: 0
+  }
+
+  &__link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__info{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    text-align: left;
+    margin-right: 50px;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__image {
+    width: max-content;
+    height: 100px;
+
+    & img {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

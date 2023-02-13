@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const userSlice = createSlice({
-  name: "userName", //????
+  name: "userName",
   initialState,
   reducers: {
     loginUser(state, action: PayloadAction<IUsers>) {

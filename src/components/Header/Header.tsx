@@ -15,7 +15,6 @@ import {useAppSelector} from "../../hooks/redux";
 import {Link} from "react-router-dom";
 import DialogLogin from "../DialogLogin/DialogLogin";
 import DialogRegister from "../DialogRegister/DialogRegister";
-import {useNavigate} from "react-router-dom";
 
 const Header = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -23,7 +22,6 @@ const Header = () => {
   const [openRegister, setOpenRegister] = useState(false);
   const {logoutUser} = useActions()
   const user = useAppSelector((state) => state.auth.user);
-  const navigate = useNavigate();
 
   const handleOpenUserMenu = ({event}: { event: any }) => {
     setAnchorElUser(event.currentTarget);
@@ -33,7 +31,6 @@ const Header = () => {
     event.preventDefault()
     logoutUser({})
     setAnchorElUser(null);
-    navigate('/')
   };
 
   return (
@@ -45,6 +42,7 @@ const Header = () => {
             {user.email
               ? (
                 <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex', alignItems: 'center', gap: 10}}}>
+                  <div>Hello, {user.name}!</div>
                   <Tooltip title="Open settings">
                     <IconButton onClick={(event) => handleOpenUserMenu({event: event})} sx={{p: 0}}>
                       <Avatar alt="Remy Sharp" src={String(user.avatar)}/>
@@ -68,7 +66,7 @@ const Header = () => {
                     onClose={() => setAnchorElUser(null)}
                   >
                     <MenuItem>
-                      <Link to={`/users/${user.id}`}>
+                      <Link className='header__link' to={`/users/${user.id}`}>
                         <Typography textAlign="center">{user.name} profile</Typography>
                       </Link>
                     </MenuItem>
@@ -95,7 +93,6 @@ const Header = () => {
                   openRegister={openRegister}
                   setOpenRegister={setOpenRegister}
                 />
-
               </Box>
             }
           </Toolbar>

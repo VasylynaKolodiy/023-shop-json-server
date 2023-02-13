@@ -9,7 +9,7 @@ import Dialog from "@mui/material/Dialog";
 import {useAddUserMutation, useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
 
-interface IDialogRegister {
+interface IDialogRegisterProps {
   openRegister: boolean,
   setOpenRegister: (isOpenRegister: boolean) => void
 }
@@ -26,7 +26,7 @@ const initialUser = {
   history: {}
 }
 
-const DialogRegister: React.FC<IDialogRegister> = ({openRegister, setOpenRegister}) => {
+const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRegister}) => {
 
   const [getUser] = useLazyGetUserQuery();
   const {loginUser} = useActions()
@@ -44,7 +44,6 @@ const DialogRegister: React.FC<IDialogRegister> = ({openRegister, setOpenRegiste
         if (newUser.email && newUser.password && newUser.name) {
           result = await addNewUser(newUser).unwrap()
           loginUser(result)
-          // navigate(`/users/${result?.name}`)
           setOpenRegister(false);
         }
       }

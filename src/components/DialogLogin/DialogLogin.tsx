@@ -8,19 +8,17 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import {useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
-import {useNavigate} from "react-router-dom";
 
-interface IDialogLogin {
+interface IDialogLoginProps {
   openLogin: boolean,
   setOpenLogin: (isOpenLogin: boolean) => void
 }
 
-const DialogLogin: React.FC<IDialogLogin> = ({openLogin, setOpenLogin}) => {
+const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => {
   const [dataEmail, setDataEmail] = useState('')
   const [dataPassword, setDataPassword] = useState('')
   const [getUser] = useLazyGetUserQuery();
   const {loginUser} = useActions()
-  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -28,7 +26,6 @@ const DialogLogin: React.FC<IDialogLogin> = ({openLogin, setOpenLogin}) => {
       if (result.data.length) {
         setOpenLogin(false);
         loginUser(result.data[0])
-        navigate(`/users/${result.data[0].name}`)
       } else {
         alert('No user with this email address and password was found');
       }

@@ -38,3 +38,12 @@ export interface IUsers {
   id: number,
   GeneralsumInBasket: number
 }
+
+export interface IHistoryProduct {
+  id: number,
+  title: string,
+  img: string,
+  price: number,
+  col: number
+}
+
