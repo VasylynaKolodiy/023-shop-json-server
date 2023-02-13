@@ -2,7 +2,6 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IUsers} from "../../models/Interfaces";
 
 export const USR_STORAGE_KEY = 'user'
-
 const initialState = {
   user: JSON.parse(localStorage.getItem(USR_STORAGE_KEY) || '{}')
 }

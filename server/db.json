@@ -3462,6 +3462,72 @@
       "basket": [],
       "GeneralsumInBasket": 0,
       "history": {}
+    },
+    {
+      "id": 7,
+      "email": "johnjohn@mail.com",
+      "password": "changemejohn",
+      "name": "johnjohn",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
+    },
+    {
+      "id": 8,
+      "email": "johnjohn@mail.comjohn",
+      "password": "changemejohn",
+      "name": "johnjohn",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
+    },
+    {
+      "id": 9,
+      "email": "john@mail.com123456",
+      "password": "changeme",
+      "name": "john@mail.com",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
+    },
+    {
+      "id": 10,
+      "email": "john@mail.com123456876",
+      "password": "changeme",
+      "name": "john@mail.com",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
+    },
+    {
+      "id": 11,
+      "email": "john@mail.comuuu",
+      "password": "changeme",
+      "name": "john@mail.com",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
+    },
+    {
+      "id": 12,
+      "email": "john@mail.comfg",
+      "password": "changeme",
+      "name": "dfs",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
     }
   ]
 }

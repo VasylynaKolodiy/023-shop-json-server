@@ -44,6 +44,7 @@ const DialogRegister: React.FC<IDialogRegister> = ({openRegister, setOpenRegiste
         if (newUser.email && newUser.password && newUser.name) {
           result = await addNewUser(newUser).unwrap()
           loginUser(result)
+          // navigate(`/users/${result?.name}`)
           setOpenRegister(false);
         }
       }
