@@ -2,97 +2,86 @@ import React, {useEffect} from 'react';
 import './UserPage.scss'
 import {useAppSelector} from "../../hooks/redux";
 import {useNavigate} from "react-router-dom"
-import {styled} from '@mui/material/styles';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion, {AccordionProps} from '@mui/material/Accordion';
-import MuiAccordionSummary, {AccordionSummaryProps} from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import {IHistoryProduct} from "../../models/Interfaces";
-import HistoryItem from "../../components/HistoryItem/HistoryItem";
 import './UserPage.scss'
+import UserAbout from "../../components/UserAbout/UserAbout";
+import UserHistory from "../../components/UserHistory/UserHistory";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 
-const Accordion = styled((props: AccordionProps) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />))(({theme}) =>
-  ({ // const [addNewUser, {isError}] = useAddUserMutation();
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
-    border: `1px solid ${theme.palette.divider}`,
-    '&:not(:last-child)': {
-      borderBottom: 0,
-    },
-    '&:before': {
-      display: 'none',
-    },
-  }));
+function TabPanel(props: TabPanelProps) {
+  const {children, value, index, ...other} = props;
 
-const AccordionSummary = styled((props: AccordionSummaryProps) => (
-  <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{fontSize: '0.9rem'}}/>}{...props}
-  />))
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{p: 3}}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
 
-(({theme}) => ({
-  backgroundColor:
-    theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, .05)'
-      : 'rgba(0, 0, 0, .03)',
-  flexDirection: 'row-reverse',
-  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
-  },
-  '& .MuiAccordionSummary-content': {
-    marginLeft: theme.spacing(1),
-  },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({theme}) => ({
-  padding: theme.spacing(2),
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
-}));
+function a11yProps(index: number) {
+  return {
+    id: `vertical-tab-${index}`,
+    'aria-controls': `vertical-tabpanel-${index}`,
+  };
+}
 
 const UserPage = () => {
   const user = useAppSelector((state) => state.auth.user);
   const navigate = useNavigate()
-  const [expanded, setExpanded] = React.useState<string | false>('panel');
+  const [value, setValue] = React.useState(0);
 
   useEffect(() => {
     !user.name && navigate('/')
   }, [user])
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
-      setExpanded(newExpanded ? panel : false);
-    };
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  }
 
   return (
     <main className='userPage'>
       <h2 className='userPage__title'> Hello, {user.name}!</h2>
 
-      <div className='userPage__accordion'>
-        {Object.keys(user.history).map((k, i) => {
-          return (
-            <Accordion key={i} expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i + 1}`)}>
-              <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
-                <Typography>
-                  {k.replace(' GMT+0300 (Москва, стандартное время)', '')}
-                </Typography>
-              </AccordionSummary>
+      <Box
+        sx={{flexGrow: 1, bgcolor: 'background.paper', display: 'flex'}}
+      >
+        <Tabs
+          orientation="vertical"
+          variant="scrollable"
+          value={value}
+          onChange={handleChange}
+          aria-label="Vertical tabs"
+          sx={{borderRight: 1, borderColor: 'divider'}}
+        >
+          <Tab label="About user" {...a11yProps(0)} />
+          <Tab label="Buy history" {...a11yProps(1)} />
+        </Tabs>
 
-              <AccordionDetails>
-                <div className='userPage__productList'>
-                  {user.history[String(k)].map((elem: IHistoryProduct) =>
-                    <HistoryItem product={elem} key={elem.id} />
-                  )}
-                </div>
-              </AccordionDetails>
-            </Accordion>
-          )
-        })}
-      </div>
+        <TabPanel value={value} index={0}>
+          <UserAbout user={user}/>
+        </TabPanel>
 
-
-      <section className='userPage__info'>
-      </section>
-
+        <TabPanel value={value} index={1}>
+          <UserHistory user={user}/>
+        </TabPanel>
+      </Box>
     </main>
   );
 };

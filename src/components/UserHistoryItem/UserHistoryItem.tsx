@@ -1,5 +1,5 @@
 import React from 'react';
-import './HistoryItem.scss'
+import './UserHistoryItem.scss'
 import {IHistoryProduct} from "../../models/Interfaces";
 import {Link} from "react-router-dom"
 
@@ -7,10 +7,9 @@ interface IHistoryItemProps {
   product: IHistoryProduct
 }
 
-const HistoryItem : React.FC<IHistoryItemProps> = ({product}) => {
+const UserHistoryItem : React.FC<IHistoryItemProps> = ({product}) => {
   return (
     <section className='historyItem'>
-      <Link className='historyItem__link' to={`/${product.id}`}/>
 
       <div className='historyItem__image'>
         <img src={product.img} alt={product.title}/>
@@ -18,17 +17,17 @@ const HistoryItem : React.FC<IHistoryItemProps> = ({product}) => {
 
       <div className='historyItem__info'>
         <div className='historyItem__content'>
-          <p>{product.title}</p>
-          <p>{product.price}$</p>
+          <Link className='historyItem__link' to={`/${product.id}`}>{product.title}</Link>
+          <p>{product.price.toLocaleString('en')}$</p>
         </div>
 
         <div className='historyItem__content'>
           <p>Count: {product.col}</p>
-          <p>Total Price: {product.col * product.price}$</p>
+          <p>Total Price: {(product.col * product.price).toLocaleString('en')}$</p>
         </div>
       </div>
     </section>
   );
 };
 
-export default HistoryItem;
+export default UserHistoryItem;

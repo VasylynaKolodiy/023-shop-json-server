@@ -45,7 +45,7 @@ const Header = () => {
                   <div>Hello, {user.name}!</div>
                   <Tooltip title="Open settings">
                     <IconButton onClick={(event) => handleOpenUserMenu({event: event})} sx={{p: 0}}>
-                      <Avatar alt="Remy Sharp" src={String(user.avatar)}/>
+                      <Avatar alt={user.name} src={String(user.avatar)}/>
                     </IconButton>
                   </Tooltip>
 

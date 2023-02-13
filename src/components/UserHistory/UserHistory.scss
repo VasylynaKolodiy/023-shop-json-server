@@ -1,0 +1,11 @@
+.userHistory{
+  //border: 1px solid #EAEAEA;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  background-color: white;
+
+  &__productList{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
