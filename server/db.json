@@ -3451,6 +3451,17 @@
       },
       "id": 5,
       "GeneralsumInBasket": 0
+    },
+    {
+      "id": 6,
+      "email": "velissa@mail.com",
+      "password": "Velissa",
+      "name": "Velissa",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
     }
   ]
 }

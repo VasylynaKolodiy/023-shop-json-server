@@ -10,8 +10,8 @@ import {useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
 
 interface IDialogLogin {
-  openLogin: Boolean,
-  setOpenLogin: (isOpen: boolean) => void
+  openLogin: boolean,
+  setOpenLogin: (isOpenLogin: boolean) => void
 }
 
 const DialogLogin: React.FC<IDialogLogin> = ({openLogin, setOpenLogin}) => {
