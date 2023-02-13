@@ -21,9 +21,10 @@ import {useAddUserMutation, useLazyGetUserQuery} from "../../store/products/prod
 import {useActions} from "../../hooks/actions";
 import {useAppSelector} from "../../hooks/redux";
 import {Link} from "react-router-dom";
-
+import DialogLogin from "../DialogLogin/DialogLogin";
 
 const Header = () => {
+
   const initialUser = {
     id: '',
     email: '',
@@ -36,11 +37,9 @@ const Header = () => {
     history: {}
   }
 
+  const [openLogin, setOpenLogin] = useState(false)
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [openLogin, setOpenLogin] = React.useState(false);
   const [openRegister, setOpenRegister] = React.useState(false);
-  const [dataEmail, setDataEmail] = useState('')
-  const [dataPassword, setDataPassword] = useState('')
   const [getUser] = useLazyGetUserQuery();
   const {loginUser, logoutUser} = useActions()
   const user = useAppSelector((state) => state.auth.user);
@@ -52,24 +51,6 @@ const Header = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleLogin = async () => {
-    try {
-      let result = await getUser({email: dataEmail, password: dataPassword});
-      if (result.data.length) {
-        setOpenLogin(false);
-        loginUser(result.data[0])
-      } else {
-        alert('No user with this email address and password was found');
-      }
-    } catch (err) {alert(String(err));}
-  };
-
-  const handleCloseLogin = () => {
-    setDataEmail('')
-    setDataPassword('')
-    setOpenLogin(false)
-  }
-
   const handleLogout = (event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLLIElement>) => {
     event.preventDefault()
     logoutUser({})
@@ -80,18 +61,18 @@ const Header = () => {
     try {
       let result = {}
       let existUser = await getUser({email: newUser.email});
-      console.log(existUser.data, 'existUser.data')
       if (existUser.data.length) {
         alert('A user with this email address already exists');
-      }
-      else{
+      } else {
         if (newUser.email && newUser.password && newUser.name) {
           result = await addNewUser(newUser).unwrap()
           loginUser(result)
           setOpenRegister(false);
         }
       }
-    } catch (err) {alert(String(err));}
+    } catch (err) {
+      alert(String(err));
+    }
   };
 
   const handleCloseRegister = () => {
@@ -104,10 +85,7 @@ const Header = () => {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-
             <Link className='logo' to="/">Shop</Link>
-
-
             {user.email
               ? (
                 <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex', alignItems: 'center', gap: 10}}}>
@@ -148,42 +126,45 @@ const Header = () => {
                   <Typography className='typography' textAlign="center">Login</Typography>
                 </MenuItem>
 
-                <Dialog open={openLogin} onClose={() => handleCloseLogin()}>
-                  <DialogTitle>Login</DialogTitle>
-                  <DialogContent>
-                    <DialogContentText>
-                      To login to this website, please enter your email address and password here.
-                    </DialogContentText>
 
-                    <TextField
-                      autoFocus
-                      margin="dense"
-                      id="emailLogin"
-                      label="Email Address"
-                      type="email"
-                      fullWidth
-                      variant="standard"
-                      value={dataEmail}
-                      onChange={(event) => setDataEmail(event.target.value)}
-                    />
+                <DialogLogin openLogin = {openLogin} setOpenLogin={setOpenLogin}/>
 
-                    <TextField
-                      autoFocus
-                      margin="dense"
-                      id="passwordLogin"
-                      label="Password"
-                      type="password"
-                      fullWidth
-                      variant="standard"
-                      value={dataPassword}
-                      onChange={(event) => setDataPassword(event.target.value)}
-                    />
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={() => handleCloseLogin()}>Cancel</Button>
-                    <Button onClick={handleLogin}>Login</Button>
-                  </DialogActions>
-                </Dialog>
+                {/*<Dialog open={openLogin} onClose={() => handleCloseLogin()}>*/}
+                {/*  <DialogTitle>Login</DialogTitle>*/}
+                {/*  <DialogContent>*/}
+                {/*    <DialogContentText>*/}
+                {/*      To login to this website, please enter your email address and password here.*/}
+                {/*    </DialogContentText>*/}
+
+                {/*    <TextField*/}
+                {/*      autoFocus*/}
+                {/*      margin="dense"*/}
+                {/*      id="emailLogin"*/}
+                {/*      label="Email Address"*/}
+                {/*      type="email"*/}
+                {/*      fullWidth*/}
+                {/*      variant="standard"*/}
+                {/*      value={dataEmail}*/}
+                {/*      onChange={(event) => setDataEmail(event.target.value)}*/}
+                {/*    />*/}
+
+                {/*    <TextField*/}
+                {/*      autoFocus*/}
+                {/*      margin="dense"*/}
+                {/*      id="passwordLogin"*/}
+                {/*      label="Password"*/}
+                {/*      type="password"*/}
+                {/*      fullWidth*/}
+                {/*      variant="standard"*/}
+                {/*      value={dataPassword}*/}
+                {/*      onChange={(event) => setDataPassword(event.target.value)}*/}
+                {/*    />*/}
+                {/*  </DialogContent>*/}
+                {/*  <DialogActions>*/}
+                {/*    <Button onClick={() => handleCloseLogin()}>Cancel</Button>*/}
+                {/*    <Button onClick={handleLogin}>Login</Button>*/}
+                {/*  </DialogActions>*/}
+                {/*</Dialog>*/}
 
 
                 <Dialog open={openRegister} onClose={() => handleCloseRegister()}>
