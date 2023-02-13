@@ -91,7 +91,6 @@ const UserPage = () => {
 
 
       <section className='userPage__info'>
-
       </section>
 
     </main>
