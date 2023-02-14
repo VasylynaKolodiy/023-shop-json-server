@@ -15,11 +15,14 @@ import {useAppSelector} from "../../hooks/redux";
 import {Link} from "react-router-dom";
 import DialogLogin from "../DialogLogin/DialogLogin";
 import DialogRegister from "../DialogRegister/DialogRegister";
+import {ReactComponent as BasketIcon} from "../../assets/img/basket.svg"
+import DialogBasket from "../DialogBasket/DialogBasket";
 
 const Header = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [openLogin, setOpenLogin] = useState(false)
   const [openRegister, setOpenRegister] = useState(false);
+  const [openBasket, setOpenBasket] = useState(false);
   const {logoutUser} = useActions()
   const user = useAppSelector((state) => state.auth.user);
 
@@ -39,10 +42,10 @@ const Header = () => {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Link className='logo' to="/">Shop</Link>
+
             {user.email
               ? (
                 <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex', alignItems: 'center', gap: 10}}}>
-                  <div>Hello, {user.name}!</div>
                   <Tooltip title="Open settings">
                     <IconButton onClick={(event) => handleOpenUserMenu({event: event})} sx={{p: 0}}>
                       <Avatar alt={user.name} src={String(user.avatar)}/>
@@ -95,6 +98,17 @@ const Header = () => {
                 />
               </Box>
             }
+
+            <Box className="header__basketBox" onClick={() => setOpenBasket(true)} >
+              {user.basket ? <div className='header__basketCount'>{user.basket.length > 0 ? user.basket.length : ''}</div> : ''}
+              <BasketIcon/>
+            </Box>
+
+            <DialogBasket
+              openBasket={openBasket}
+              setOpenBasket={setOpenBasket}
+            />
+
           </Toolbar>
         </Container>
       </AppBar>

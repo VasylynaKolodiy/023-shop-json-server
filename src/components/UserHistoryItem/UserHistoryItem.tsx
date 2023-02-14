@@ -1,13 +1,14 @@
 import React from 'react';
 import './UserHistoryItem.scss'
-import {IHistoryProduct} from "../../models/Interfaces";
+import {IProductInfo} from "../../models/Interfaces";
 import {Link} from "react-router-dom"
 
 interface IHistoryItemProps {
-  product: IHistoryProduct
+  product: IProductInfo
 }
 
 const UserHistoryItem : React.FC<IHistoryItemProps> = ({product}) => {
+
   return (
     <section className='historyItem'>
 

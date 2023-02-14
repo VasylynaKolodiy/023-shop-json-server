@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from "@mui/material/Typography";
-import {IHistoryProduct, IUsers} from "../../models/Interfaces";
+import {IProductInfo, IUsers} from "../../models/Interfaces";
 import UserHistoryItem from "../UserHistoryItem/UserHistoryItem";
 import "./UserHistory.scss"
 import {styled} from "@mui/material/styles";
@@ -69,7 +69,7 @@ const UserHistory : React.FC<IUserHistoryProps> =  ({user}) => {
 
           <AccordionDetails>
             <div className='userHistory__productList'>
-              {value.map((elem: IHistoryProduct) =>
+              {value.map((elem: IProductInfo) =>
                 <UserHistoryItem product={elem} key={elem.id}/>
               )}
             </div>

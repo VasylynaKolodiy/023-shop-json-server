@@ -29,6 +29,45 @@
     text-transform: uppercase;
   }
 
+  .logo + div{
+    width: 100%;
+  }
+
+  &__basketBox{
+    display: flex;
+    align-self: end;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+
+  &__basketCount{
+    padding: 0 7px;
+    background-color: rgba(green, 0.8);
+    border-radius: 100%;
+    font-size: 12px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+
+  .MuiBox-root svg{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+
+    & path{
+      transition: .3s linear;
+      fill: #575757;
+    }
+
+    &:hover{
+      & path{
+        fill: black;
+      }
+    }
+  }
+
   .MuiPaper-root{
     background-color: #FFFFFF;
     color: black;

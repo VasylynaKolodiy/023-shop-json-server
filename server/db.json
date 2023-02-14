@@ -3320,7 +3320,7 @@
           "title": "Small Concrete Cheese",
           "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
           "price": 957,
-          "col": 1
+          "col": 6
         },
         {
           "id": 9,
@@ -3523,6 +3523,17 @@
       "email": "john@mail.comfg",
       "password": "changeme",
       "name": "dfs",
+      "role": "customer",
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
+      "basket": [],
+      "GeneralsumInBasket": 0,
+      "history": {}
+    },
+    {
+      "id": 13,
+      "email": "fjohn@mail.com",
+      "password": "changeme",
+      "name": "john@mail.comf",
       "role": "customer",
       "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
       "basket": [],

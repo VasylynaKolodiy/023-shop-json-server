@@ -17,15 +17,6 @@ export interface ICategories {
   image: string
 }
 
-interface IHistory {
-  id: number,
-  title: string,
-  img: string,
-  price: number,
-  col: number,
-}
-
-
 export interface IUsers {
   email: string,
   password: string,
@@ -34,17 +25,16 @@ export interface IUsers {
   avatar: string,
   basket: { item: [string] },
   history: {
-    data: IHistory[]
+    data: IProductInfo[]
   },
   id: number,
   GeneralsumInBasket: number
 }
 
-export interface IHistoryProduct {
+export interface IProductInfo {
   id: number,
   title: string,
   img: string,
   price: number,
-  col: number
+  col: number,
 }
-
