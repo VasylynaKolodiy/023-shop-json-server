@@ -15,9 +15,7 @@ interface IBasketItemProps {
 }
 
 const BasketItem: React.FC<IBasketItemProps> = ({product, totalPrice, setTotalPrice, index}) => {
-
-  const [inputValue, setInputValue] = useState<number>(1)
-
+  const [inputValue, setInputValue] = useState<number>(product.col)
   const calculateTotalPrice = (num: number) => {
     let arr = [...totalPrice]
     arr[index] = product.price * num
@@ -48,14 +46,16 @@ const BasketItem: React.FC<IBasketItemProps> = ({product, totalPrice, setTotalPr
                 type="number"
                 value={inputValue}
                 min={1}
-                onChange={(e) => setInputValue(Number(e.target.value))}
+                onChange={(e) => {
+                  setInputValue(Number(e.target.value))
+                }}
               />
             </div>
             <Button className="basketItem__minus"
                     onClick={() => {
                       setInputValue(inputValue > 1 ? Number(inputValue) - 1 : 1)
-                      calculateTotalPrice(inputValue> 1 ? inputValue - 1 : 1)
-                    } }>
+                      calculateTotalPrice(inputValue > 1 ? inputValue - 1 : 1)
+                    }}>
               <MinusIcon/>
             </Button>
           </div>
