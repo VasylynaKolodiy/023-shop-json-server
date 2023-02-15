@@ -14,13 +14,12 @@ interface IBasketItemProps {
 }
 
 const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
-
     const user = useAppSelector((state) => state.auth.user);
     const newUsersProductCountData = {...user}
     const {loginUser} = useActions()
-
     const [calculateCount] = useCalculateProductCountMutation();
-    const handleCalculate = async (sign: number = 1) => {
+    
+    const handleCalculateCount = async (sign: number = 1) => {
       try {
         let result = await calculateCount({
           ...newUsersProductCountData,
@@ -54,7 +53,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
             <div className="basketItem__counter">
               <Button
                 className="basketItem__plus"
-                onClick={() => {handleCalculate(1).then()}}
+                onClick={() => {handleCalculateCount(1).then()}}
               >
                 <PlusIcon/>
               </Button>
@@ -70,14 +69,14 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
               <Button
                 className="basketItem__minus"
                 disabled={user.basket[index].col <= 1}
-                onClick={() => {handleCalculate(-1).then()}}
+                onClick={() => {handleCalculateCount(-1).then()}}
               >
                 <MinusIcon/>
               </Button>
             </div>
 
-            <div
-              className="basketItem__price">{(user.basket[index].price * user.basket[index].col).toLocaleString('en')}$
+            <div className="basketItem__price">
+              {(user.basket[index].price * user.basket[index].col).toLocaleString('en')}$
             </div>
 
             <div className="basketItem__bin">

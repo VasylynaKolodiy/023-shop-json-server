@@ -3320,14 +3320,14 @@
           "title": "Small Concrete Cheese",
           "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
           "price": 957,
-          "col": 6
+          "col": 1
         },
         {
           "id": 9,
           "title": "MackBook Pro 2019 Pro 16\"",
           "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
           "price": 149000,
-          "col": 2
+          "col": 3
         }
       ],
       "GeneralsumInBasket": 149957,

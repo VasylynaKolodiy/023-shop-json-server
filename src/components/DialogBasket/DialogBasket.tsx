@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import "./DialogBasket.scss"
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -17,21 +17,15 @@ interface IDialogBasketProps {
 
 const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket}) => {
   const user = useAppSelector((state) => state.auth.user);
-  let arr: number[] = []
-
-
-  const [totalPriceArr, setTotalPriceArr] = useState<number[]>([...arr])
-  let totalPrice = totalPriceArr.reduce((sum, elem) => +sum + +elem, 0)
+  let totalPrice = user.basket.reduce((sum: number, elem: IProductInfo) => {
+    return +sum + (+elem.col * +elem.price)
+  }, 0)
 
   const handleCloseBasket = () => {
     setOpenBasket(false)
   }
-  useEffect(() => {
-    if (user?.basket?.length) {
-      user.basket.map((prod: IProductInfo) => arr.push(prod.price * prod.col))
-    }
-  }, [totalPrice, openBasket])
-  const handleBasket = () => {
+
+  const handleOrderBasket = () => {
   }
 
   return (
@@ -42,8 +36,8 @@ const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket})
           <CloseIcon/>
         </div>
       </DialogTitle>
-      <DialogContent>
 
+      <DialogContent>
         {user?.basket?.length > 0
           ? user.basket.map((product: IProductInfo, index: number) =>
             <BasketItem
@@ -58,10 +52,9 @@ const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket})
         <div className='dialogBasket__totalPrice'>
           Total price: {totalPrice.toLocaleString('en')}$
         </div>
-        <Button onClick={handleBasket}>Order</Button>
+        <Button onClick={handleOrderBasket}>Order</Button>
       </DialogActions>
     </Dialog>
-
   );
 };
 

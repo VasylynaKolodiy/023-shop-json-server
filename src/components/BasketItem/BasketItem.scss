@@ -50,9 +50,9 @@
     gap: 5px;
     padding: 5px;
     width: max-content;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: rgba(darkgray, 0.3);
+    //border: 1px solid gray;
+    //border-radius: 5px;
+    //background-color: rgba(darkgray, 0.3);
   }
 
   &__input{
@@ -63,15 +63,14 @@
 
   &__minus,
   &__plus{
-    padding: 10px;
     width: 100%;
     height: 40px;
   }
 
   &__minus svg,
   &__plus svg{
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
   }
 
   &__bin{
