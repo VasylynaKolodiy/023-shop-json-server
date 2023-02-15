@@ -21,7 +21,12 @@
   &__totalPrice{
     font-weight: bold;
     font-size: 20px;
-    margin-right: 30px;
+  }
+
+  &__order{
+    display: flex;
+    align-items: center;
+    gap: 30px;
   }
 
   .MuiDialogTitle-root{
@@ -39,5 +44,10 @@
 
   .MuiDialogActions-spacing{
     margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+
 }

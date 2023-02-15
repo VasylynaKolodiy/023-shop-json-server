@@ -17,7 +17,7 @@ interface IDialogBasketProps {
 
 const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket}) => {
   const user = useAppSelector((state) => state.auth.user);
-  let totalPrice = user.basket.reduce((sum: number, elem: IProductInfo) => {
+  let totalPrice = user?.basket?.reduce((sum: number, elem: IProductInfo) => {
     return +sum + (+elem.col * +elem.price)
   }, 0)
 
@@ -48,11 +48,17 @@ const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket})
         }
       </DialogContent>
 
+
       <DialogActions>
-        <div className='dialogBasket__totalPrice'>
-          Total price: {totalPrice.toLocaleString('en')}$
+        <Button onClick={() => handleCloseBasket()} variant="outlined">Shopping</Button>
+
+        <div className='dialogBasket__order'>
+          <div className='dialogBasket__totalPrice'>
+            Total price: {totalPrice?.toLocaleString('en')}$
+          </div>
+          <Button onClick={handleOrderBasket} variant="outlined">Order</Button>
         </div>
-        <Button onClick={handleOrderBasket}>Order</Button>
+
       </DialogActions>
     </Dialog>
   );

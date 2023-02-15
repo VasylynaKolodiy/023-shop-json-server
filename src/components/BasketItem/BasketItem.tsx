@@ -18,7 +18,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
     const newUsersProductCountData = {...user}
     const {loginUser} = useActions()
     const [calculateCount] = useCalculateProductCountMutation();
-    
+
     const handleCalculateCount = async (sign: number = 1) => {
       try {
         let result = await calculateCount({
@@ -29,6 +29,21 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
               ...user.basket[index],
               col: user.basket[index].col + sign
             },
+            ...user.basket.slice(index + 1)
+          ]
+        }).unwrap()
+        loginUser(result)
+      } catch (err) {
+        alert(String(err));
+      }
+    };
+
+    const handleRemoveFromBasket = async () => {
+      try {
+        let result = await calculateCount({
+          ...newUsersProductCountData,
+          basket: [
+            ...user.basket.slice(0, index),
             ...user.basket.slice(index + 1)
           ]
         }).unwrap()
@@ -53,7 +68,9 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
             <div className="basketItem__counter">
               <Button
                 className="basketItem__plus"
-                onClick={() => {handleCalculateCount(1).then()}}
+                onClick={() => {
+                  handleCalculateCount(1).then()
+                }}
               >
                 <PlusIcon/>
               </Button>
@@ -69,7 +86,9 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
               <Button
                 className="basketItem__minus"
                 disabled={user.basket[index].col <= 1}
-                onClick={() => {handleCalculateCount(-1).then()}}
+                onClick={() => {
+                  handleCalculateCount(-1).then()
+                }}
               >
                 <MinusIcon/>
               </Button>
@@ -79,7 +98,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
               {(user.basket[index].price * user.basket[index].col).toLocaleString('en')}$
             </div>
 
-            <div className="basketItem__bin">
+            <div className="basketItem__bin" onClick={() => handleRemoveFromBasket().then()}>
               <BinIcon/>
             </div>
           </div>

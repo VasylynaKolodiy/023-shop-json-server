@@ -1,14 +1,14 @@
-.productPage{
+.productPage {
   text-align: left;
 
-  &__inner{
+  &__inner {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 50px;
   }
 
-  &__images{
+  &__images {
     height: auto;
     width: 50%;
     margin-bottom: 180px;
@@ -16,7 +16,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
 
-    & img{
+    & img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -25,7 +25,7 @@
     }
   }
 
-  &__content{
+  &__content {
     width: 45%;
     background: #FFFFFF;
     border: 1px solid #EAEAEA;
@@ -36,7 +36,7 @@
     margin-bottom: 35px;
   }
 
-  &__group{
+  &__group {
     display: flex;
     align-items: baseline;
     gap: 30px;
@@ -44,14 +44,14 @@
     margin-bottom: 20px;
   }
 
-  &__title{
+  &__title {
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
   }
 
-  &__description{
+  &__description {
     text-align: left;
     font-style: normal;
     font-weight: 400;
@@ -60,11 +60,11 @@
     color: #000000;
   }
 
-  &__buyButton{
+  &__buyButton {
     margin-bottom: 20px !important;
   }
 
-  &__link{
+  &__link {
     font-weight: bold;
     font-style: normal;
     font-size: 16px;
@@ -83,25 +83,43 @@
       transition: .3s linear;
     }
 
-    &:hover{
-      &::before{
+    &:hover {
+      &::before {
         margin-left: -7px;
         margin-right: 13px;
       }
     }
   }
 
-  .slick-dots{
+  &__inBasket {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+  &__inBasket svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slick-dots {
     height: 100px;
     padding-top: 100px;
   }
 
-  .slick-dots li{
+  .slick-dots li {
     height: 100px;
     width: auto;
   }
 
-  .slick-dots li div{
+  .slick-dots li div {
     height: 100px;
     width: auto;
   }

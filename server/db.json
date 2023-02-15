@@ -3316,18 +3316,25 @@
       "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=174",
       "basket": [
         {
+          "id": 9,
+          "title": "MackBook Pro 2019 Pro 16\"",
+          "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
+          "price": 99999,
+          "col": 5
+        },
+        {
           "id": 10,
           "title": "Small Concrete Cheese",
           "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
           "price": 957,
-          "col": 1
+          "col": 2
         },
         {
-          "id": 9,
-          "title": "MackBook Pro 2019 Pro 16\"",
-          "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-          "price": 149000,
-          "col": 3
+          "id": 24,
+          "title": "Ergonomic Rubber Shirt",
+          "img": "https://api.lorem.space/image/fashion?w=640&h=480&r=2500",
+          "price": 566,
+          "col": 1
         }
       ],
       "GeneralsumInBasket": 149957,
