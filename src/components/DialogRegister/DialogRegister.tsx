@@ -30,7 +30,7 @@ const initialUser = {
 const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRegister}) => {
 
   const [getUser] = useLazyGetUserQuery();
-  const {loginUser} = useActions()
+  const {setUser} = useActions()
   const [newUser, setNewUser] = useState(initialUser)
   const [addNewUser] = useAddUserMutation();
   // const [addNewUser, {isError}] = useAddUserMutation();
@@ -44,7 +44,7 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
       } else {
         if (newUser.email && newUser.password && newUser.name) {
           result = await addNewUser(newUser).unwrap()
-          loginUser(result)
+          setUser(result)
           setOpenRegister(false);
         }
       }

@@ -63,7 +63,7 @@ const UserHistory : React.FC<IUserHistoryProps> =  ({user}) => {
         <Accordion key={i} expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i + 1}`)}>
           <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
             <Typography>
-              {k.replace(' GMT+0300 (Москва, стандартное время)', '')}
+              {k.replace(' GMT+0300 (Москва, стандартное время)', '').replace(' GMT+0100 (Central European Standard Time)', '')}
             </Typography>
           </AccordionSummary>
 

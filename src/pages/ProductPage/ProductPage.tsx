@@ -41,7 +41,7 @@ const ProductPage = () => {
     price: data?.price || 0,
     col: 1
   }
-  const {loginUser} = useActions()
+  const {setUser} = useActions()
   const [calculateCount] = useEditBasketMutation();
   let isProductInBasket = false
   {isProductInBasket = user?.basket ? (user?.basket?.map((elem: IProductInfo) => elem.id)).includes(newProduct.id) : false}
@@ -52,7 +52,7 @@ const ProductPage = () => {
         ...user,
         basket: !isProductInBasket ? [...user.basket, newProduct] : [...user.basket]
       }).unwrap()
-      loginUser(result)
+      setUser(result)
       openBasket(true)
     } catch (err) {
       alert("Please, login");

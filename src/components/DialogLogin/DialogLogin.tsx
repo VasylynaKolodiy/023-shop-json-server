@@ -19,14 +19,14 @@ const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => 
   const [dataEmail, setDataEmail] = useState('')
   const [dataPassword, setDataPassword] = useState('')
   const [getUser] = useLazyGetUserQuery();
-  const {loginUser} = useActions()
+  const {setUser} = useActions()
 
   const handleLogin = async () => {
     try {
       let result = await getUser({email: dataEmail, password: dataPassword});
       if (result.data.length) {
         setOpenLogin(false);
-        loginUser(result.data[0])
+        setUser(result.data[0])
       } else {
         alert('No user with this email address and password was found');
       }

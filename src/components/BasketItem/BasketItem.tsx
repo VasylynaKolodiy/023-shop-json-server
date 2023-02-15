@@ -16,7 +16,7 @@ interface IBasketItemProps {
 const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
     const user = useAppSelector((state) => state.auth.user);
     const newUsersProductCountData = {...user}
-    const {loginUser} = useActions()
+    const {setUser} = useActions()
     const [calculateCount] = useEditBasketMutation();
     const {openBasket} = useActions()
 
@@ -33,7 +33,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
             ...user.basket.slice(index + 1)
           ]
         }).unwrap()
-        loginUser(result)
+        setUser(result)
       } catch (err) {
         alert(String(err));
       }
@@ -48,7 +48,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
             ...user.basket.slice(index + 1)
           ]
         }).unwrap()
-        loginUser(result)
+        setUser(result)
       } catch (err) {
         alert(String(err));
       }

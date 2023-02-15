@@ -10,11 +10,14 @@ import {IProductInfo} from "../../models/Interfaces";
 import BasketItem from "../BasketItem/BasketItem";
 import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
 import {useActions} from "../../hooks/actions";
+import {useEditBasketMutation} from "../../store/products/products.api";
 
 const DialogBasket = () => {
-  const user = useAppSelector((state) => state.auth.user);
   const {openBasket} = useActions()
   const isOpen = useAppSelector((state) => state.auth.isOpenBasket);
+  const [editHistory] = useEditBasketMutation();
+  const user = useAppSelector((state) => state.auth.user);
+  const {setUser} = useActions()
 
   let totalPrice = user?.basket?.reduce((sum: number, elem: IProductInfo) => {
     return +sum + (+elem.col * +elem.price)
@@ -24,7 +27,26 @@ const DialogBasket = () => {
     openBasket(false)
   }
 
-  const handleOrderBasket = () => {
+  const handleOrderBasket = async () => {
+    const newUsersHistory = {
+      [String(new Date)]: [
+        ...user.basket
+      ]
+    }
+    try {
+      let result = await editHistory({
+        ...user,
+        basket: [],
+        history: {
+          ...newUsersHistory,
+          ...user.history,
+        }
+      }).unwrap()
+      setUser(result)
+      openBasket(false)
+    } catch (err) {
+      alert(String(err));
+    }
   }
 
   return (
@@ -48,13 +70,27 @@ const DialogBasket = () => {
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={() => handleCloseBasket()} variant="outlined">Shopping</Button>
+        <Button
+          className="dialogBasket__buttonShopping"
+          onClick={() => handleCloseBasket()}
+          variant="outlined"
+        >
+          Shopping
+        </Button>
 
         <div className='dialogBasket__order'>
           <div className='dialogBasket__totalPrice'>
             Total price: {totalPrice?.toLocaleString('en')}$
           </div>
-          <Button onClick={handleOrderBasket} variant="outlined" disabled={!totalPrice}>Order</Button>
+
+          <Button
+            className="dialogBasket__buttonOrder"
+            onClick={handleOrderBasket}
+            variant="outlined"
+            disabled={!totalPrice}
+          >
+            Order
+          </Button>
         </div>
 
       </DialogActions>
