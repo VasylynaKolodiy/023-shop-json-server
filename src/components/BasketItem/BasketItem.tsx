@@ -10,7 +10,7 @@ import {useActions} from "../../hooks/actions";
 import {useAppSelector} from "../../hooks/redux";
 
 interface IBasketItemProps {
-  index: number
+  index: number,
 }
 
 const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
@@ -18,6 +18,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
     const newUsersProductCountData = {...user}
     const {loginUser} = useActions()
     const [calculateCount] = useEditBasketMutation();
+    const {openBasket} = useActions()
 
     const handleCalculateCount = async (sign: number = 1) => {
       try {
@@ -61,7 +62,10 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
 
         <div className="basketItem__info">
           <div className="basketItem__title">
-            <Link className="basketItem__link" to={`/${user.basket[index].id}`}>{user.basket[index].title}</Link>
+            <Link
+              className="basketItem__link"
+              onClick={() => openBasket(false)}
+              to={`/${user.basket[index].id}`}>{user.basket[index].title}</Link>
           </div>
 
           <div className="basketItem__wrapper">

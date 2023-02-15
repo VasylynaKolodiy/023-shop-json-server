@@ -59,7 +59,7 @@ const UserHistory : React.FC<IUserHistoryProps> =  ({user}) => {
 
   return (
     <section className='userHistory'>
-      {Object.entries(user.history).map(([k, value], i) =>
+      {user?.history && Object.entries(user?.history)?.map(([k, value], i) =>
         <Accordion key={i} expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i + 1}`)}>
           <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
             <Typography>

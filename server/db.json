@@ -3398,25 +3398,46 @@
       "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
       "basket": [
         {
+          "id": 103,
+          "title": "Small Fresh Salad",
+          "img": "https://api.lorem.space/image?w=640&h=480&r=3188",
+          "price": 85,
+          "col": 2
+        },
+        {
+          "id": 20,
+          "title": "Handcrafted Fresh Bacon",
+          "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=9894",
+          "price": 172,
+          "col": 1
+        },
+        {
           "id": 10,
           "title": "Small Concrete Cheese",
           "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
           "price": 957,
-          "col": 2
-        },
-        {
-          "id": 19,
-          "title": "Incredible Wooden Towels",
-          "img": "https://api.lorem.space/image?w=640&h=480&r=7962",
-          "price": 760,
           "col": 1
         },
         {
-          "id": 25,
-          "title": "Small Plastic Keyboard",
-          "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=1139",
-          "price": 889,
-          "col": 5
+          "id": 8,
+          "title": "Luxury furniture",
+          "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
+          "price": 19999,
+          "col": 1
+        },
+        {
+          "id": 11,
+          "title": "Generic Wooden Chips",
+          "img": "https://api.lorem.space/image?w=640&h=480&r=3878",
+          "price": 962,
+          "col": 1
+        },
+        {
+          "id": 29,
+          "title": "Unbranded Steel Table",
+          "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=5875",
+          "price": 714,
+          "col": 1
         }
       ],
       "GeneralsumInBasket": 0,

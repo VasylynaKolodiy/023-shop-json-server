@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import {useAddUserMutation, useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
+import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
 
 interface IDialogRegisterProps {
   openRegister: boolean,
@@ -59,7 +60,12 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
 
   return (
     <Dialog open={Boolean(openRegister)} onClose={() => handleCloseRegister()}>
-      <DialogTitle>Register</DialogTitle>
+      <DialogTitle>
+        <div>Register</div>
+        <div className='dialog__close' onClick={() => handleCloseRegister()}>
+          <CloseIcon/>
+        </div>
+      </DialogTitle>
       <DialogContent>
         <DialogContentText>
           To register to this website, please fill in the fields below.
@@ -102,8 +108,8 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => handleCloseRegister()}>Cancel</Button>
-        <Button onClick={() => handleRegisterNewUser()}>Register</Button>
+        <Button variant="outlined" onClick={() => handleCloseRegister()}>Cancel</Button>
+        <Button variant="outlined" onClick={() => handleRegisterNewUser()}>Register</Button>
       </DialogActions>
     </Dialog>
   );

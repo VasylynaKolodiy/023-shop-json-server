@@ -8,6 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import {useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
+import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
 
 interface IDialogLoginProps {
   openLogin: boolean,
@@ -42,7 +43,12 @@ const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => 
 
   return (
     <Dialog open={Boolean(openLogin)} onClose={() => handleCloseLogin()}>
-      <DialogTitle>Login</DialogTitle>
+      <DialogTitle>
+        <div>Login</div>
+        <div className='dialog__close' onClick={() => handleCloseLogin()}>
+          <CloseIcon/>
+        </div>
+      </DialogTitle>
       <DialogContent>
         <DialogContentText>
           To login to this website, please enter your email address and password here.
@@ -74,8 +80,8 @@ const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => 
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={() => handleCloseLogin()}>Cancel</Button>
-        <Button onClick={handleLogin}>Login</Button>
+        <Button variant="outlined" onClick={() => handleCloseLogin()}>Cancel</Button>
+        <Button variant="outlined" onClick={handleLogin}>Login</Button>
       </DialogActions>
 
     </Dialog>

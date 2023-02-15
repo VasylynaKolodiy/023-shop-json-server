@@ -15,6 +15,7 @@ import {ReactComponent as InBasketIcon} from "../../assets/img/basket-order.svg"
 const ProductPage = () => {
   const {id} = useParams();
   const {isLoading, data} = useGetDetailProductQuery(String(id));
+  const {openBasket} = useActions()
 
   const settings = {
     dots: true,
@@ -50,9 +51,9 @@ const ProductPage = () => {
       let result = await calculateCount({
         ...user,
         basket: !isProductInBasket ? [...user.basket, newProduct] : [...user.basket]
-
       }).unwrap()
       loginUser(result)
+      openBasket(true)
     } catch (err) {
       alert("Please, login");
     }
@@ -91,7 +92,7 @@ const ProductPage = () => {
                 >
                   Add to basket
                 </Button>)
-                : <div className='productPage__inBasket'>
+                : <div className='productPage__inBasket' onClick={() => openBasket(true)}>
                   <InBasketIcon />
                   <div>Already in the basket</div>
                 </div>

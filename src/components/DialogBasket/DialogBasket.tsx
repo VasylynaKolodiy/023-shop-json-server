@@ -9,30 +9,29 @@ import {useAppSelector} from "../../hooks/redux";
 import {IProductInfo} from "../../models/Interfaces";
 import BasketItem from "../BasketItem/BasketItem";
 import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
+import {useActions} from "../../hooks/actions";
 
-interface IDialogBasketProps {
-  openBasket: boolean,
-  setOpenBasket: (isOpenBasket: boolean) => void
-}
-
-const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket}) => {
+const DialogBasket = () => {
   const user = useAppSelector((state) => state.auth.user);
+  const {openBasket} = useActions()
+  const isOpen = useAppSelector((state) => state.auth.isOpenBasket);
+
   let totalPrice = user?.basket?.reduce((sum: number, elem: IProductInfo) => {
     return +sum + (+elem.col * +elem.price)
   }, 0)
 
   const handleCloseBasket = () => {
-    setOpenBasket(false)
+    openBasket(false)
   }
 
   const handleOrderBasket = () => {
   }
 
   return (
-    <Dialog className='dialogBasket' open={Boolean(openBasket)} onClose={() => handleCloseBasket()}>
+    <Dialog className='dialogBasket' open={isOpen} onClose={() => handleCloseBasket()}>
       <DialogTitle>
         <div className='dialogBasket__title'>Basket</div>
-        <div className='dialogBasket__close' onClick={() => handleCloseBasket()}>
+        <div className='dialog__close' onClick={() => handleCloseBasket()}>
           <CloseIcon/>
         </div>
       </DialogTitle>
@@ -47,7 +46,6 @@ const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket})
           : <div>Your basket is empty</div>
         }
       </DialogContent>
-
 
       <DialogActions>
         <Button onClick={() => handleCloseBasket()} variant="outlined">Shopping</Button>

@@ -1,23 +1,5 @@
 .dialogBasket{
 
-  &__close{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-
-  &__close svg{
-    width: 35px;
-    height: 35px;
-    padding: 10px;
-    border-radius: 5px;
-    transition: .3s linear;
-
-    &:hover{
-      background-color: rgba(darkgray, 0.3);
-    }
-  }
-
   &__totalPrice{
     font-weight: bold;
     font-size: 20px;
@@ -29,25 +11,56 @@
     gap: 30px;
   }
 
-  .MuiDialogTitle-root{
-    border: 1px solid #EAEAEA;
-    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-  }
-
   .MuiTypography-h6{
     display: flex;
     align-items: center;
   }
 
   .MuiDialogActions-spacing{
-    margin-bottom: 20px;
-    padding: 20px;
+    padding: 20px 10px 20px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
+  .MuiDialog-container.MuiDialog-scrollPaper {
+    .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm {
+      width: 1000px !important;
+      max-width: 1000px !important;
+    }
+  }
+}
+
+.dialog__close{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  & svg{
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: .3s linear;
+
+    &:hover{
+      background-color: rgba(darkgray, 0.3);
+    }
+  }
+}
+
+.MuiTypography-h6.MuiDialogTitle-root{
+  margin-bottom: 30px;
+}
+
+.MuiDialogTitle-root{
+  border: 1px solid #EAEAEA;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.MuiDialogActions-spacing{
+  margin: 0 20px 20px 20px;
 }

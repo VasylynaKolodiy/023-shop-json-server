@@ -3,7 +3,8 @@ import {IUsers} from "../../models/Interfaces";
 
 export const USR_STORAGE_KEY = 'user'
 const initialState = {
-  user: JSON.parse(localStorage.getItem(USR_STORAGE_KEY) || '{}')
+  user: JSON.parse(localStorage.getItem(USR_STORAGE_KEY) || '{}'),
+  isOpenBasket: false,
 }
 
 export const userSlice = createSlice({
@@ -17,7 +18,10 @@ export const userSlice = createSlice({
     logoutUser(state, action: PayloadAction<IUsers>) {
       state.user = action.payload
       localStorage.removeItem(USR_STORAGE_KEY)
-    }
+    },
+    openBasket(state, action: PayloadAction<boolean>) {
+      state.isOpenBasket = action.payload
+    },
   }
 })
 

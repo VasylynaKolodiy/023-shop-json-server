@@ -23,9 +23,9 @@ const Header = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [openLogin, setOpenLogin] = useState(false)
   const [openRegister, setOpenRegister] = useState(false);
-  const [openBasket, setOpenBasket] = useState(false);
   const {logoutUser} = useActions()
   const user = useAppSelector((state) => state.auth.user);
+  const {openBasket} = useActions()
 
   const handleOpenUserMenu = ({event}: { event: any }) => {
     setAnchorElUser(event.currentTarget);
@@ -100,15 +100,12 @@ const Header = () => {
               </Box>
             }
 
-            <Box className="header__basketBox" onClick={() => setOpenBasket(true)} >
+            <Box className="header__basketBox" onClick={() => openBasket(true)} >
               {user.basket ? <div className='header__basketCount'>{user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || ''}</div> : ''}
               <BasketIcon/>
             </Box>
 
-            <DialogBasket
-              openBasket={openBasket}
-              setOpenBasket={setOpenBasket}
-            />
+            <DialogBasket/>
 
           </Toolbar>
         </Container>
