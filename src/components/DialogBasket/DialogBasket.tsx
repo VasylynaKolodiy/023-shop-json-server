@@ -56,7 +56,7 @@ const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket})
           <div className='dialogBasket__totalPrice'>
             Total price: {totalPrice?.toLocaleString('en')}$
           </div>
-          <Button onClick={handleOrderBasket} variant="outlined">Order</Button>
+          <Button onClick={handleOrderBasket} variant="outlined" disabled={!totalPrice}>Order</Button>
         </div>
 
       </DialogActions>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import './ProductPage.scss'
-import {useCalculateProductCountMutation, useGetDetailProductQuery} from "../../store/products/products.api";
+import {useEditBasketMutation, useGetDetailProductQuery} from "../../store/products/products.api";
 import {Button, Rating} from "@mui/material";
 // *Import css files for slider*
 import "slick-carousel/slick/slick.css";
@@ -41,8 +41,9 @@ const ProductPage = () => {
     col: 1
   }
   const {loginUser} = useActions()
-  const [calculateCount] = useCalculateProductCountMutation();
-  const isProductInBasket = (user.basket.map((elem: IProductInfo) => elem.id)).includes(newProduct.id)
+  const [calculateCount] = useEditBasketMutation();
+  let isProductInBasket = false
+  {isProductInBasket = user?.basket ? (user?.basket?.map((elem: IProductInfo) => elem.id)).includes(newProduct.id) : false}
 
   const handleAddToBasket = async () => {
     try {
@@ -53,7 +54,7 @@ const ProductPage = () => {
       }).unwrap()
       loginUser(result)
     } catch (err) {
-      alert(String(err));
+      alert("Please, login");
     }
   };
 
@@ -85,6 +86,7 @@ const ProductPage = () => {
                 ? (<Button
                   className='productPage__buyButton'
                   variant="outlined"
+                  disabled={!user.basket}
                   onClick={() => handleAddToBasket().then()}
                 >
                   Add to basket
@@ -94,7 +96,6 @@ const ProductPage = () => {
                   <div>Already in the basket</div>
                 </div>
               }
-
 
               <p className='productPage__description'>
                 {data?.description}

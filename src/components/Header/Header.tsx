@@ -17,6 +17,7 @@ import DialogLogin from "../DialogLogin/DialogLogin";
 import DialogRegister from "../DialogRegister/DialogRegister";
 import {ReactComponent as BasketIcon} from "../../assets/img/basket.svg"
 import DialogBasket from "../DialogBasket/DialogBasket";
+import {IProductInfo} from "../../models/Interfaces";
 
 const Header = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -100,7 +101,7 @@ const Header = () => {
             }
 
             <Box className="header__basketBox" onClick={() => setOpenBasket(true)} >
-              {user.basket ? <div className='header__basketCount'>{user.basket.length > 0 ? user.basket.length : ''}</div> : ''}
+              {user.basket ? <div className='header__basketCount'>{user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || ''}</div> : ''}
               <BasketIcon/>
             </Box>
 

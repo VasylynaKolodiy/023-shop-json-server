@@ -52,7 +52,7 @@ export const productsApi = createApi({
       })
     }),
 
-    calculateProductCount: build.mutation({
+    editBasket: build.mutation({
       query: (body) => ({
         url: `/users/${body.id}`,
         method: 'PATCH',
@@ -68,5 +68,5 @@ export const {
   useFilterProductsByCategoryQuery,
   useLazyGetUserQuery,
   useAddUserMutation,
-  useCalculateProductCountMutation,
+  useEditBasketMutation,
 } = productsApi

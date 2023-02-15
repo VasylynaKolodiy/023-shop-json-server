@@ -5,7 +5,7 @@ import {ReactComponent as PlusIcon} from "../../assets/img/plus.svg";
 import {ReactComponent as MinusIcon} from "../../assets/img/minus.svg";
 import {ReactComponent as BinIcon} from "../../assets/img/bin.svg";
 import {Button} from "@mui/material";
-import {useCalculateProductCountMutation} from "../../store/products/products.api";
+import {useEditBasketMutation} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
 import {useAppSelector} from "../../hooks/redux";
 
@@ -17,7 +17,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
     const user = useAppSelector((state) => state.auth.user);
     const newUsersProductCountData = {...user}
     const {loginUser} = useActions()
-    const [calculateCount] = useCalculateProductCountMutation();
+    const [calculateCount] = useEditBasketMutation();
 
     const handleCalculateCount = async (sign: number = 1) => {
       try {
