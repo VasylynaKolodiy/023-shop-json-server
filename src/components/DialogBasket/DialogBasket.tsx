@@ -20,7 +20,6 @@ const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket})
   let arr: number[] = []
 
 
-
   const [totalPriceArr, setTotalPriceArr] = useState<number[]>([...arr])
   let totalPrice = totalPriceArr.reduce((sum, elem) => +sum + +elem, 0)
 
@@ -49,9 +48,6 @@ const DialogBasket: React.FC<IDialogBasketProps> = ({openBasket, setOpenBasket})
           ? user.basket.map((product: IProductInfo, index: number) =>
             <BasketItem
               key={product.id}
-              product={product}
-              totalPrice={totalPriceArr}
-              setTotalPrice={setTotalPriceArr}
               index={index}
             />)
           : <div>Your basket is empty</div>

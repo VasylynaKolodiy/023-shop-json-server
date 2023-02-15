@@ -37,16 +37,26 @@ export const productsApi = createApi({
         return {data: response, totalCount: (meta.response?.headers.get('X-Total-Count'))}
       }
     }),
+
     getUser: build.query({
       query: ({email, password}) => ({
         url: `/users?email=${email}${password ? '&password='+password : ''}`,
       })
     }),
+
     addUser: build.mutation({
       query: (body) => ({
         url: `/users`,
         method: 'POST',
         body,
+      })
+    }),
+
+    calculateProductCount: build.mutation({
+      query: (body) => ({
+        url: `/users/${body.id}`,
+        method: 'PATCH',
+        body
       })
     }),
   })
@@ -58,4 +68,5 @@ export const {
   useFilterProductsByCategoryQuery,
   useLazyGetUserQuery,
   useAddUserMutation,
+  useCalculateProductCountMutation,
 } = productsApi

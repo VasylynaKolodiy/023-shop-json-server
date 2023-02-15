@@ -23,7 +23,7 @@ export interface IUsers {
   name: string,
   role: string,
   avatar: string,
-  basket: { item: [string] },
+  basket: IProductInfo[],
   history: {
     data: IProductInfo[]
   },
