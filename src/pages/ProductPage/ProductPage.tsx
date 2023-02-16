@@ -11,6 +11,7 @@ import {IProductInfo} from "../../models/Interfaces";
 import {useAppSelector} from "../../hooks/redux";
 import {useActions} from "../../hooks/actions";
 import {ReactComponent as InBasketIcon} from "../../assets/img/basket-order.svg";
+import {ReactComponent as EditIcon} from "../../assets/img/edit.svg";
 
 const ProductPage = () => {
   const {id} = useParams();
@@ -44,7 +45,7 @@ const ProductPage = () => {
   const {setUser} = useActions()
   const [calculateCount] = useEditBasketMutation();
   let isProductInBasket = false
-  {isProductInBasket = user?.basket ? (user?.basket?.map((elem: IProductInfo) => elem.id)).includes(newProduct.id) : false}
+  isProductInBasket = user?.basket ? (user?.basket?.map((elem: IProductInfo) => elem.id)).includes(newProduct.id) : false
 
   const handleAddToBasket = async () => {
     try {
@@ -97,6 +98,13 @@ const ProductPage = () => {
                   <div>Already in the basket</div>
                 </div>
               }
+
+              {user?.role === 'admin' && (
+                <div className='productPage__edit'>
+                  <EditIcon />
+                  <Link to='/admin'>Edit product</Link>
+                </div>
+              )}
 
               <p className='productPage__description'>
                 {data?.description}

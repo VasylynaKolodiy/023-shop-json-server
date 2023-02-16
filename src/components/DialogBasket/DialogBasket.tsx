@@ -30,9 +30,10 @@ const DialogBasket = () => {
   const handleOrderBasket = async () => {
     const newUsersHistory = {
       [String(new Date)]: [
-        ...user.basket
+        ...user?.basket
       ]
     }
+
     try {
       let result = await editHistory({
         ...user,

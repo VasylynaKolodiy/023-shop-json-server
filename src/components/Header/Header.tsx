@@ -52,7 +52,7 @@ const Header = () => {
                     <MenuItem>
                       <Link className="typography__link" to='/admin'>
                         <Typography className="typography" textAlign="center">
-                          Admin panel
+                          Admin
                         </Typography>
                       </Link>
                     </MenuItem>

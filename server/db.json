@@ -3273,6 +3273,45 @@
       "stock": 20,
       "text": "Product 1 text",
       "id": 240
+    },
+    {
+      "title": "Cacao",
+      "price": 323,
+      "description": "Cacao",
+      "category": "Cacao",
+      "images": [
+        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
+      ],
+      "rating": 2,
+      "stock": 13,
+      "text": "Cacao Cacao",
+      "id": 241
+    },
+    {
+      "title": "Product 2",
+      "price": 24,
+      "description": "Product 2 Description",
+      "category": "Milk",
+      "images": [
+        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
+      ],
+      "rating": 3,
+      "stock": 56,
+      "text": "Product 2 text",
+      "id": 242
+    },
+    {
+      "title": "aa",
+      "price": 1,
+      "description": "a",
+      "category": "ooa",
+      "images": [
+        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
+      ],
+      "rating": 1,
+      "stock": 1,
+      "text": "a",
+      "id": 243
     }
   ],
   "categories": [
@@ -3317,6 +3356,24 @@
       "visibleName": "eat",
       "image": "https://api.lorem.space/image/pizza?w=150&h=150",
       "id": 7
+    },
+    {
+      "name": "Cacao",
+      "visibleName": "Cacaoik",
+      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592",
+      "id": 8
+    },
+    {
+      "name": "Milk",
+      "visibleName": "Milks",
+      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592",
+      "id": 9
+    },
+    {
+      "name": "ooa",
+      "visibleName": "ooa",
+      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592",
+      "id": 10
     }
   ],
   "users": [
@@ -3461,6 +3518,13 @@
           "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
           "price": 12345,
           "col": 1
+        },
+        {
+          "id": 13,
+          "title": "Sleek Cotton Pizza",
+          "img": "https://api.lorem.space/image/watch?w=640&h=480&r=7842",
+          "price": 515,
+          "col": 1
         }
       ],
       "GeneralsumInBasket": 0,
@@ -3484,57 +3548,69 @@
       }
     },
     {
-      "email": "skaterpunisher@gmail.com",
-      "password": "1234321",
-      "name": "skaterpunisher",
-      "role": "admin",
-      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg",
-      "basket": [],
-      "history": {
-        "Tue Oct 25 2022 12:25:27 GMT+0300 (Москва, стандартное время)": [
-          {
-            "id": 9,
-            "title": "MackBook Pro 2019 Pro 16\"",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-            "price": 139999,
-            "col": 5
-          }
-        ]
-      },
-      "id": 4,
-      "GeneralsumInBasket": 0
-    },
-    {
-      "email": "фывфывфыв",
-      "password": "123123",
-      "name": "artem",
-      "role": "customer",
-      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2020/08/man-silhouette.jpg",
-      "basket": [],
-      "history": {
-        "Tue Oct 25 2022 15:31:58 GMT+0300 (Москва, стандартное время)": [
-          {
-            "id": 239,
-            "title": "Пицца",
-            "img": "https://braun-russia.ru/image/cache/data/products/oralb/mickey-pc500/mickey500-3-1000x1000.jpg",
-            "price": 899,
-            "col": 4
-          }
-        ]
-      },
-      "id": 5,
-      "GeneralsumInBasket": 0
-    },
-    {
       "id": 6,
       "email": "velissa@mail.com",
       "password": "Velissa",
       "name": "Velissa",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
+      "role": "admin",
+      "avatar": "https://avatars.githubusercontent.com/u/106997950?s=400&u=846ebadef5d18e9fdcb63dd84cd809e2fb8a0296&v=4",
+      "basket": [
+        {
+          "id": 138,
+          "title": "Gorgeous Granite Shoes",
+          "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=9295",
+          "price": 642,
+          "col": 1
+        },
+        {
+          "id": 243,
+          "title": "aa",
+          "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
+          "price": 1,
+          "col": 2
+        }
+      ],
       "GeneralsumInBasket": 0,
       "history": {
+        "Thu Feb 16 2023 20:49:39 GMT+0100 (Central European Standard Time)": [
+          {
+            "id": 96,
+            "title": "Fantastic Cotton Shirt",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=3072",
+            "price": 143,
+            "col": 1
+          },
+          {
+            "id": 186,
+            "title": "Tasty Wooden Car",
+            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=840",
+            "price": 236,
+            "col": 2
+          }
+        ],
+        "Thu Feb 16 2023 20:46:27 GMT+0100 (Central European Standard Time)": [
+          {
+            "id": 138,
+            "title": "Gorgeous Granite Shoes",
+            "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=9295",
+            "price": 642,
+            "col": 1
+          },
+          {
+            "id": 165,
+            "title": "Awesome Frozen Bike",
+            "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4781",
+            "price": 454,
+            "col": 2
+          },
+          {
+            "id": 237,
+            "title": "Iphone 14",
+            "img": "https://www.iguides.ru/upload/medialibrary/471/4719e79f32db53ea4db110217c00fcdf.jpeg",
+            "price": 76000,
+            "col": 1
+          }
+        ],
         "Thu Feb 16 2023 10:44:47 GMT+0100 (Central European Standard Time)": [
           {
             "id": 69,
@@ -3552,138 +3628,6 @@
           }
         ]
       }
-    },
-    {
-      "id": 7,
-      "email": "johnjohn@mail.com",
-      "password": "changemejohn",
-      "name": "johnjohn",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
-      "GeneralsumInBasket": 0,
-      "history": {}
-    },
-    {
-      "id": 8,
-      "email": "johnjohn@mail.comjohn",
-      "password": "changemejohn",
-      "name": "johnjohn",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
-      "GeneralsumInBasket": 0,
-      "history": {}
-    },
-    {
-      "id": 9,
-      "email": "john@mail.com123456",
-      "password": "changeme",
-      "name": "john@mail.com",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
-      "GeneralsumInBasket": 0,
-      "history": {}
-    },
-    {
-      "id": 10,
-      "email": "john@mail.com123456876",
-      "password": "changeme",
-      "name": "john@mail.com",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
-      "GeneralsumInBasket": 0,
-      "history": {}
-    },
-    {
-      "id": 11,
-      "email": "john@mail.comuuu",
-      "password": "changeme",
-      "name": "john@mail.com",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
-      "GeneralsumInBasket": 0,
-      "history": {}
-    },
-    {
-      "id": 12,
-      "email": "john@mail.comfg",
-      "password": "changeme",
-      "name": "dfs",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
-      "GeneralsumInBasket": 0,
-      "history": {}
-    },
-    {
-      "id": 13,
-      "email": "fjohn@mail.com",
-      "password": "changeme",
-      "name": "john@mail.comf",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
-      "GeneralsumInBasket": 0,
-      "history": {}
-    },
-    {
-      "id": 14,
-      "email": "velissa123@mail.com",
-      "password": "velissa123",
-      "name": "velissa123",
-      "role": "customer",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [
-        {
-          "id": 9,
-          "title": "MackBook Pro 2019 Pro 16\"",
-          "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-          "price": 99999,
-          "col": 1
-        },
-        {
-          "id": 25,
-          "title": "Small Plastic Keyboard",
-          "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=1139",
-          "price": 889,
-          "col": 1
-        }
-      ],
-      "GeneralsumInBasket": 0,
-      "history": {
-        "Thu Feb 16 2023 11:27:11 GMT+0100 (Central European Standard Time)": [
-          {
-            "id": 9,
-            "title": "MackBook Pro 2019 Pro 16\"",
-            "img": "https://api.lorem.space/image/watch?w=640&h=480&r=2885",
-            "price": 99999,
-            "col": 1
-          }
-        ]
-      }
-    },
-    {
-      "id": 15,
-      "email": "yuriy@mail.com",
-      "password": "yuriyadmin",
-      "name": "YURIY",
-      "role": "admin",
-      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [
-        {
-          "id": 11,
-          "title": "Generic Wooden Chips",
-          "img": "https://api.lorem.space/image?w=640&h=480&r=3878",
-          "price": 962,
-          "col": 1
-        }
-      ],
-      "GeneralsumInBasket": 0,
-      "history": {}
     }
   ]
 }

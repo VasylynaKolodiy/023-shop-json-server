@@ -21,10 +21,15 @@ const AdminAddNewProduct = () => {
   const {data: categories = []} = useGetCategoriesQuery(null, {refetchOnMountOrArgChange: true});
   const [addNewProduct] = useAddNewProductMutation();
 
-  const handleAddNewProduct = async () => {
+  const handleAddNewProduct = () => {
     try {
-      if (newProduct.title && newProduct.category && newProduct.price && newProduct.description) {
-        await addNewProduct(newProduct).unwrap()
+      if (newProduct.title && newProduct.category && newProduct.price && newProduct.description &&
+        newProduct.rating && newProduct.stock && newProduct.images && newProduct.text) {
+        addNewProduct(newProduct).unwrap()
+        setNewProduct(initialProduct)
+      }
+      else{
+        alert("Fill in all fields, please")
       }
     } catch (err) {
       alert(String(err));
@@ -36,24 +41,16 @@ const AdminAddNewProduct = () => {
 
       <div className="admin__group">
         <TextField
-          autoFocus
-          margin="dense"
-          id="product__title"
           label="Title"
           type="text"
-          fullWidth
           variant="standard"
           value={newProduct.title}
           onChange={(event) => setNewProduct({...newProduct, title: event.target.value})}
         />
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="product__price"
           label="Price"
           type="number"
-          fullWidth
           variant="standard"
           InputProps={{
             inputProps: {
@@ -67,12 +64,8 @@ const AdminAddNewProduct = () => {
 
       <div className="admin__group">
         <TextField
-          autoFocus
-          margin="dense"
-          id="product__description"
           label="Description"
           type="text"
-          fullWidth
           multiline={true}
           variant="standard"
           value={newProduct.description}
@@ -80,16 +73,41 @@ const AdminAddNewProduct = () => {
         />
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="product__text"
           label="Text"
           type="text"
-          fullWidth
           multiline={true}
           variant="standard"
           value={newProduct.text}
           onChange={(event) => setNewProduct({...newProduct, text: event.target.value})}
+        />
+      </div>
+
+      <div className="admin__group">
+        <TextField
+          label="Rating"
+          type="number"
+          variant="standard"
+          InputProps={{
+            inputProps: {
+              min: 1,
+              max: 5
+            }
+          }}
+          value={newProduct.rating}
+          onChange={(event) => setNewProduct({...newProduct, rating: Number(event.target.value)})}
+        />
+
+        <TextField
+          label="Stock"
+          type="number"
+          variant="standard"
+          InputProps={{
+            inputProps: {
+              min: 1
+            }
+          }}
+          value={newProduct.stock}
+          onChange={(event) => setNewProduct({...newProduct, stock: Number(event.target.value)})}
         />
       </div>
 
@@ -111,53 +129,11 @@ const AdminAddNewProduct = () => {
         </FormControl>
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="product__images"
           label="Images"
           type="text"
-          fullWidth
           variant="standard"
           value={newProduct.images[0]}
           onChange={(event) => setNewProduct({...newProduct, images: [event.target.value]})}
-        />
-      </div>
-
-      <div className="admin__group">
-
-        <TextField
-          autoFocus
-          margin="dense"
-          id="product__rating"
-          label="Rating"
-          type="number"
-          fullWidth
-          variant="standard"
-          InputProps={{
-            inputProps: {
-              min: 1,
-              max: 5
-            }
-          }}
-          value={newProduct.rating}
-          onChange={(event) => setNewProduct({...newProduct, rating: Number(event.target.value)})}
-        />
-
-        <TextField
-          autoFocus
-          margin="dense"
-          id="product__stock"
-          label="Stock"
-          type="number"
-          fullWidth
-          variant="standard"
-          InputProps={{
-            inputProps: {
-              min: 1
-            }
-          }}
-          value={newProduct.stock}
-          onChange={(event) => setNewProduct({...newProduct, stock: Number(event.target.value)})}
         />
       </div>
 

@@ -40,7 +40,8 @@ export const productsApi = createApi({
 
     getUser: build.query({
       query: ({email, password}) => ({
-        url: `/users?email=${email}${password ? '&password='+password : ''}`,
+        // url: `/users?email=${email}${password ? '&password='+password : ''}`,
+        url: `/users?email=${email}${password ? `&password=${password}`: ''}`,
       })
     }),
 
@@ -68,6 +69,14 @@ export const productsApi = createApi({
       })
     }),
 
+    addNewCategory: build.mutation({
+      query: (body) => ({
+        url: `/categories/`,
+        method: 'POST',
+        body
+      })
+    }),
+
   })
 })
 export const {
@@ -79,4 +88,5 @@ export const {
   useAddUserMutation,
   useEditBasketMutation,
   useAddNewProductMutation,
+  useAddNewCategoryMutation,
 } = productsApi

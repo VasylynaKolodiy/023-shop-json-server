@@ -10,7 +10,6 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import {TabPanel, a11yProps} from "../../helpers"
 
-
 const UserPage = () => {
   const user = useAppSelector((state) => state.auth.user);
   const navigate = useNavigate()

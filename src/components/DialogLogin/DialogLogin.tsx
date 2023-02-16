@@ -55,24 +55,16 @@ const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => 
         </DialogContentText>
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="emailLogin"
           label="Email Address"
           type="email"
-          fullWidth
           variant="standard"
           value={dataEmail}
           onChange={(event) => setDataEmail(event.target.value)}
         />
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="passwordLogin"
           label="Password"
           type="password"
-          fullWidth
           variant="standard"
           value={dataPassword}
           onChange={(event) => setDataPassword(event.target.value)}

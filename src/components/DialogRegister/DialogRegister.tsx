@@ -49,6 +49,9 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
           setUser(result)
           setOpenRegister(false);
         }
+        else{
+          alert("Fill in all fields, please")
+        }
       }
     } catch (err) {
       alert(String(err));
@@ -74,12 +77,8 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
         </DialogContentText>
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="nameRegister"
           label="User name"
           type="text"
-          fullWidth
           variant="standard"
           value={newUser.name}
           onChange={(event) => setNewUser({...newUser, name: event.target.value})}
@@ -99,27 +98,18 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
             <MenuItem value={'admin'}>admin</MenuItem>
           </Select>
         </FormControl>
-        
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="emailRegister"
           label="Email Address"
           type="email"
-          fullWidth
           variant="standard"
           value={newUser.email}
           onChange={(event) => setNewUser({...newUser, email: event.target.value})}
         />
 
         <TextField
-          autoFocus
-          margin="dense"
-          id="passwordRegister"
           label="Password"
           type="password"
-          fullWidth
           variant="standard"
           value={newUser.password}
           onChange={(event) => setNewUser({...newUser, password: event.target.value})}

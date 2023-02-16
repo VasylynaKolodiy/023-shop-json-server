@@ -7,6 +7,7 @@ import {TabPanel, a11yProps} from "../../helpers"
 import {useAppSelector} from "../../hooks/redux";
 import {useNavigate} from "react-router-dom";
 import AdminAddNewProduct from "../../components/AdminAddNewProduct/AdminAddNewProduct";
+import AdminAddNewCategory from "../../components/AdminAddNewCategory/AdminAddNewCategory";
 
 const AdminPage = () => {
 
@@ -47,7 +48,7 @@ const AdminPage = () => {
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-
+          <AdminAddNewCategory/>
 
         </TabPanel>
       </Box>

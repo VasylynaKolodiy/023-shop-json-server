@@ -91,7 +91,8 @@
     }
   }
 
-  &__inBasket {
+  &__inBasket,
+  &__edit{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -102,11 +103,22 @@
       text-decoration: underline;
     }
 
+    & a{
+      color: black;
+    }
   }
 
+  &__edit{
+    text-align: right;
+  }
   &__inBasket svg {
     width: 40px;
     height: 40px;
+  }
+
+  &__edit svg {
+    width: 30px;
+    height: 30px;
   }
 
   .slick-dots {
