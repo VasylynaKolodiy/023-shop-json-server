@@ -49,7 +49,7 @@ interface IUserHistoryProps {
   user: IUsers
 }
 
-const UserHistory : React.FC<IUserHistoryProps> =  ({user}) => {
+const UserHistory: React.FC<IUserHistoryProps> = ({user}) => {
 
   const [expanded, setExpanded] = React.useState<string | false>('panel');
   const handleChange =
@@ -59,23 +59,27 @@ const UserHistory : React.FC<IUserHistoryProps> =  ({user}) => {
 
   return (
     <section className='userHistory'>
-      {user?.history && Object.entries(user?.history)?.map(([k, value], i) =>
-        <Accordion key={i} expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i + 1}`)}>
-          <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
-            <Typography>
-              {k.replace(' GMT+0300 (Москва, стандартное время)', '').replace(' GMT+0100 (Central European Standard Time)', '')}
-            </Typography>
-          </AccordionSummary>
+      {user?.history.data
+        ? (Object.entries(user?.history)?.map(([k, value], i) =>
+          <Accordion key={i} expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i + 1}`)}>
+            <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
+              <Typography>
+                {k.replace(' GMT+0300 (Москва, стандартное время)', '').replace(' GMT+0100 (Central European Standard Time)', '')}
+              </Typography>
+            </AccordionSummary>
 
-          <AccordionDetails>
-            <div className='userHistory__productList'>
-              {value.map((elem: IProductInfo) =>
-                <UserHistoryItem product={elem} key={elem.id}/>
-              )}
-            </div>
-          </AccordionDetails>
-        </Accordion>
-      )}
+            <AccordionDetails>
+              <div className='userHistory__productList'>
+                {value.map((elem: IProductInfo) =>
+                  <UserHistoryItem product={elem} key={elem.id}/>
+                )}
+              </div>
+            </AccordionDetails>
+          </Accordion>
+        ))
+        : <h4>You have not made any purchases yet...</h4>
+      }
+
     </section>
   );
 };

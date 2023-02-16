@@ -9,6 +9,8 @@ import Dialog from "@mui/material/Dialog";
 import {useAddUserMutation, useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
 import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import './DialogRegister.scss'
 
 interface IDialogRegisterProps {
   openRegister: boolean,
@@ -20,7 +22,7 @@ const initialUser = {
   email: '',
   password: '',
   name: '',
-  role: "customer",
+  role: '',
   avatar: "https://api.lorem.space/image/face?w=640&h=480&r=8037",
   basket: [],
   GeneralsumInBasket: 0,
@@ -42,7 +44,7 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
       if (existUser.data.length) {
         alert('A user with this email address already exists');
       } else {
-        if (newUser.email && newUser.password && newUser.name) {
+        if (newUser.email && newUser.password && newUser.name && newUser.role) {
           result = await addNewUser(newUser).unwrap()
           setUser(result)
           setOpenRegister(false);
@@ -54,7 +56,7 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
   };
 
   const handleCloseRegister = () => {
-    setNewUser({...newUser, name: '', password: '', email: ''})
+    setNewUser({...newUser, name: '', password: '', email: '', role: ''})
     setOpenRegister(false)
   }
 
@@ -83,6 +85,22 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
           onChange={(event) => setNewUser({...newUser, name: event.target.value})}
         />
 
+        <FormControl variant="standard" >
+          <InputLabel id="dialog__labelRole">User Role</InputLabel>
+          <Select
+            labelId="dialog__labelRole"
+            className="dialog__selectRole"
+            id="dialog__selectRole"
+            value={newUser.role}
+            label="User role"
+            onChange={(event) => setNewUser({...newUser, role: event.target.value})}
+          >
+            <MenuItem value={'customer'}>customer</MenuItem>
+            <MenuItem value={'admin'}>admin</MenuItem>
+          </Select>
+        </FormControl>
+        
+
         <TextField
           autoFocus
           margin="dense"
@@ -107,6 +125,7 @@ const DialogRegister: React.FC<IDialogRegisterProps> = ({openRegister, setOpenRe
           onChange={(event) => setNewUser({...newUser, password: event.target.value})}
         />
       </DialogContent>
+
       <DialogActions>
         <Button variant="outlined" onClick={() => handleCloseRegister()}>Cancel</Button>
         <Button variant="outlined" onClick={() => handleRegisterNewUser()}>Register</Button>
