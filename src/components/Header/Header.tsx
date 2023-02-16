@@ -47,6 +47,17 @@ const Header = () => {
             {user.email
               ? (
                 <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex', alignItems: 'center', gap: 10}}}>
+
+                  {user?.role === 'admin' && (
+                    <MenuItem>
+                      <Link className="typography__link" to='/admin'>
+                        <Typography className="typography" textAlign="center">
+                          Admin panel
+                        </Typography>
+                      </Link>
+                    </MenuItem>
+                  )}
+
                   <Tooltip title="Open settings">
                     <IconButton onClick={(event) => handleOpenUserMenu({event: event})} sx={{p: 0}}>
                       <Avatar alt={user.name} src={String(user.avatar)}/>
@@ -100,8 +111,9 @@ const Header = () => {
               </Box>
             }
 
-            <Box className="header__basketBox" onClick={() => openBasket(true)} >
-              {user.basket ? <div className='header__basketCount'>{user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || ''}</div> : ''}
+            <Box className="header__basketBox" onClick={() => openBasket(true)}>
+              {user.basket ? <div
+                className='header__basketCount'>{user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || ''}</div> : ''}
               <BasketIcon/>
             </Box>
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IProducts {
   id: number,
   title: string,
@@ -37,4 +39,10 @@ export interface IProductInfo {
   img: string,
   price: number,
   col: number,
+}
+
+export interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
 }

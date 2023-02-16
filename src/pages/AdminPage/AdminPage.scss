@@ -1,0 +1,33 @@
+.adminPage{
+
+
+
+
+  .MuiBox-root {
+    height: max-content;
+    min-height: 350px;
+  }
+
+  .MuiTabs-vertical {
+    min-width: 150px;
+    padding: 30px 0;
+  }
+
+  #vertical-tabpanel-0,
+  #vertical-tabpanel-1 {
+    width: 100%;
+  }
+
+  .MuiTabs-indicator {
+    background-color: black;
+  }
+
+  .MuiTab-textColorPrimary.Mui-selected {
+    color: black;
+  }
+
+  #vertical-tabpanel-0 div,
+  #vertical-tabpanel-1 div {
+    padding-right: 0;
+  }
+}

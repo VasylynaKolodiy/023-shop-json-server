@@ -60,6 +60,14 @@ export const productsApi = createApi({
       })
     }),
 
+    addNewProduct: build.mutation({
+      query: (body) => ({
+        url: `/products/`,
+        method: 'POST',
+        body
+      })
+    }),
+
   })
 })
 export const {
@@ -70,4 +78,5 @@ export const {
   useLazyGetUserQuery,
   useAddUserMutation,
   useEditBasketMutation,
+  useAddNewProductMutation,
 } = productsApi

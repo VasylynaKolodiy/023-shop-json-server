@@ -3260,6 +3260,19 @@
       "rating": 1,
       "stock": 90,
       "text": "<div class='text'><p>Nam tristique porta ligula, vel viverra sem eleifend nec. Nulla sed purus augue, eu euismod tellus. Nam mattis eros nec mi sagittis sagittis. Vestibulum suscipit cursus bibendum. Integer at justo eget sem auctor auctor eget vitae arcu. Nam tempor malesuada porttitor. Nulla quis dignissim ipsum. Aliquam pulvinar iaculis justo, sit amet interdum sem hendrerit vitae. Vivamus vel erat tortor. Nulla facilisi. In nulla quam, lacinia eu aliquam ac, aliquam in nisl.</p><h5><strong>Unordered list</strong></h5><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ul><h5><strong>Ordered list</strong></h5><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ol><p>In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat lacus. Nulla risus massa, commodo in imperdiet ut, ornare in leo. Duis pellentesque sagittis lorem, sed mollis lorem venenatis id.</p></div>"
+    },
+    {
+      "title": "Product 1",
+      "price": 12345,
+      "description": "Product 1 description",
+      "category": "eat",
+      "images": [
+        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
+      ],
+      "rating": 3,
+      "stock": 20,
+      "text": "Product 1 text",
+      "id": 240
     }
   ],
   "categories": [
@@ -3440,6 +3453,13 @@
           "title": "Handcrafted Fresh Tuna",
           "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=7668",
           "price": 689,
+          "col": 1
+        },
+        {
+          "id": 240,
+          "title": "Product 1",
+          "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
+          "price": 12345,
           "col": 1
         }
       ],
@@ -3653,7 +3673,15 @@
       "name": "YURIY",
       "role": "admin",
       "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=8037",
-      "basket": [],
+      "basket": [
+        {
+          "id": 11,
+          "title": "Generic Wooden Chips",
+          "img": "https://api.lorem.space/image?w=640&h=480&r=3878",
+          "price": 962,
+          "col": 1
+        }
+      ],
       "GeneralsumInBasket": 0,
       "history": {}
     }

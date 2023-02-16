@@ -1,0 +1,27 @@
+.admin {
+
+  border: 1px solid #EAEAEA;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 10px;
+  width: 100%;
+  padding: 30px;
+  margin: 0 auto;
+  flex-direction: column;
+
+  &__group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+  }
+
+  &__buttonAdd{
+    margin: auto 0 auto auto !important;
+  }
+}
+
