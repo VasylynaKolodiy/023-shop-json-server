@@ -9,11 +9,17 @@ import Button from "@mui/material/Button";
 import {useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
 import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
+import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 
 interface IDialogLoginProps {
   openLogin: boolean,
   setOpenLogin: (isOpenLogin: boolean) => void
 }
+
+interface SnackbarState extends SnackbarOrigin {
+  open: boolean;
+}
+
 
 const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => {
   const [dataEmail, setDataEmail] = useState('')
@@ -41,8 +47,31 @@ const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => 
     setOpenLogin(false)
   }
 
+
+
+
+
+
+  const [stateSnack, setStateSnack] = React.useState<SnackbarState>({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+  const { vertical, horizontal, open } = stateSnack;
+
+  const handleClick = (newStateSnack: SnackbarOrigin) => () => {
+    setStateSnack({ open: true, ...newStateSnack });
+  };
+
+  const handleClose = () => {
+    setStateSnack({ ...stateSnack, open: false });
+  };
+
+
+
   return (
     <Dialog open={Boolean(openLogin)} onClose={() => handleCloseLogin()}>
+
       <DialogTitle>
         <div>Login</div>
         <div className='dialog__close' onClick={() => handleCloseLogin()}>
@@ -75,6 +104,22 @@ const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => 
         <Button variant="outlined" onClick={() => handleCloseLogin()}>Cancel</Button>
         <Button variant="outlined" onClick={handleLogin}>Login</Button>
       </DialogActions>
+
+      <Button
+        onClick={handleClick({
+          vertical: 'top',
+          horizontal: 'center',
+        })}
+      >
+        Top-Center
+      </Button>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        message="Successful login"
+        key={vertical + horizontal}
+      />
 
     </Dialog>
   );

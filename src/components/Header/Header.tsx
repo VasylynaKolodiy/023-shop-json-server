@@ -114,18 +114,11 @@ const Header = () => {
               </Box>
             }
 
-            {/*<Box className="header__basketBox" onClick={() => openBasket(true)}>*/}
-            {/*  {user.basket ? <div*/}
-            {/*    className='header__basketCount'>{user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || ''}</div> : ''}*/}
-            {/*  <BasketIcon/>*/}
-            {/*</Box>*/}
-
             <Box className="header__basketBox" onClick={() => openBasket(true)}>
               <Badge invisible={badgeContentValue<=0} badgeContent={badgeContentValue} color="success">
                 <BasketIcon/>
               </Badge>
             </Box>
-
 
             <DialogBasket/>
 

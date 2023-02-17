@@ -8,14 +8,14 @@ import AdminPage from "./pages/AdminPage/AdminPage";
 function App() {
   return (
     <div className='App container'>
-      <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/:id' element={<ProductPage/>}/>
-        <Route path='/categories' element={<ProductPage/>}/>
-        <Route path='/categories/:categoryName' element={<ProductPage/>}/>
-        <Route path='/users/:userId' element={<UserPage/>}/>
-        <Route path='/admin' element={<AdminPage/>}/>
-      </Routes>
+        <Routes>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/:id' element={<ProductPage/>}/>
+          <Route path='/categories' element={<ProductPage/>}/>
+          <Route path='/categories/:categoryName' element={<ProductPage/>}/>
+          <Route path='/users/:userId' element={<UserPage/>}/>
+          <Route path='/admin' element={<AdminPage/>}/>
+        </Routes>
     </div>
   );
 }
