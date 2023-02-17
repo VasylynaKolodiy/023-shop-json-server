@@ -32,7 +32,7 @@
     },
     {
       "id": 10,
-      "title": "Small Concrete Cheese",
+      "title": "Small Concrete Cheese Edit",
       "price": 957,
       "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
       "category": "others",
@@ -3312,6 +3312,19 @@
       "stock": 1,
       "text": "a",
       "id": 243
+    },
+    {
+      "id": 244,
+      "title": "Product 3",
+      "price": 3453,
+      "description": "Product 3 description",
+      "category": "Cacao",
+      "images": [
+        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
+      ],
+      "rating": 3,
+      "stock": 34,
+      "text": "Product 3 text"
     }
   ],
   "categories": [
@@ -3568,6 +3581,20 @@
           "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
           "price": 1,
           "col": 2
+        },
+        {
+          "id": 8,
+          "title": "Luxury furniture",
+          "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
+          "price": 19999,
+          "col": 1
+        },
+        {
+          "id": 10,
+          "title": "Small Concrete Cheese",
+          "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
+          "price": 957,
+          "col": 1
         }
       ],
       "GeneralsumInBasket": 0,

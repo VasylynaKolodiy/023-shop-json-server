@@ -92,7 +92,7 @@
   }
 
   &__inBasket,
-  &__edit{
+  &__edit {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -103,14 +103,15 @@
       text-decoration: underline;
     }
 
-    & a{
+    & a {
       color: black;
     }
   }
 
-  &__edit{
+  &__edit {
     text-align: right;
   }
+
   &__inBasket svg {
     width: 40px;
     height: 40px;
@@ -146,4 +147,18 @@
   li.slick-active img {
     border: 3px solid gray;
   }
+
+
+}
+
+.MuiDialog-container.MuiDialog-scrollPaper {
+  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm {
+    width: 1000px !important;
+    max-width: 1000px !important;
+  }
+}
+
+.MuiDialogActions-root {
+  display: flex;
+  gap: 20px;
 }

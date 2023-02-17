@@ -33,7 +33,6 @@ const DialogBasket = () => {
         ...user?.basket
       ]
     }
-
     try {
       let result = await editHistory({
         ...user,

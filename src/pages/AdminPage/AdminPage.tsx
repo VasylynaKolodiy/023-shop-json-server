@@ -16,7 +16,7 @@ const AdminPage = () => {
   const [value, setValue] = React.useState(0);
 
   useEffect(() => {
-    user.role !== 'admin'  && navigate('/')
+    user.role !== 'admin' && navigate('/')
   }, [user])
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {

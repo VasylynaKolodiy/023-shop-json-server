@@ -77,11 +77,20 @@ export const productsApi = createApi({
       })
     }),
 
+    editProduct: build.mutation({
+      query: (body) => ({
+        url: `/products/${body.id}`,
+        method: 'PATCH',
+        body
+      })
+    }),
+
   })
 })
 export const {
   useGetProductsQuery,
   useGetDetailProductQuery,
+  useLazyGetDetailProductQuery,
   useGetCategoriesQuery,
   useFilterProductsByCategoryQuery,
   useLazyGetUserQuery,
@@ -89,4 +98,5 @@ export const {
   useEditBasketMutation,
   useAddNewProductMutation,
   useAddNewCategoryMutation,
+  useEditProductMutation,
 } = productsApi

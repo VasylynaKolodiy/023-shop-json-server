@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, useParams} from "react-router-dom";
 import './ProductPage.scss'
 import {useEditBasketMutation, useGetDetailProductQuery} from "../../store/products/products.api";
@@ -12,11 +12,13 @@ import {useAppSelector} from "../../hooks/redux";
 import {useActions} from "../../hooks/actions";
 import {ReactComponent as InBasketIcon} from "../../assets/img/basket-order.svg";
 import {ReactComponent as EditIcon} from "../../assets/img/edit.svg";
+import DialogEditProduct from "../../components/DialogEditProduct/DialogEditProduct";
 
 const ProductPage = () => {
   const {id} = useParams();
-  const {isLoading, data} = useGetDetailProductQuery(String(id));
   const {openBasket} = useActions()
+  const [openEditor, setOpenEditor] = useState(false)
+  const {isLoading, data} = useGetDetailProductQuery(String(id));
 
   const settings = {
     dots: true,
@@ -60,6 +62,10 @@ const ProductPage = () => {
     }
   };
 
+  const handleEditProduct = () => {
+    setOpenEditor(true);
+  }
+
   return (
     <main className='productPage'>
       {isLoading
@@ -100,9 +106,9 @@ const ProductPage = () => {
               }
 
               {user?.role === 'admin' && (
-                <div className='productPage__edit'>
+                <div className='productPage__edit' onClick={() => handleEditProduct()}>
                   <EditIcon />
-                  <Link to='/admin'>Edit product</Link>
+                  <div>Edit product</div>
                 </div>
               )}
 
@@ -115,6 +121,13 @@ const ProductPage = () => {
             className='productPage__text'
             dangerouslySetInnerHTML={{__html: data?.text as string}}
           />
+
+          {data?.title && (
+            <DialogEditProduct
+              product={data}
+              openEditor={openEditor}
+              setOpenEditor={setOpenEditor} />
+          )}
         </>
       }
     </main>
