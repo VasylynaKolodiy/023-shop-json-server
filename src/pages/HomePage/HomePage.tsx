@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Pagination from "@mui/material/Pagination";
 import {
   useFilterProductsByCategoryQuery,
@@ -19,6 +19,7 @@ const HomePage = () => {
   const {data: categories = []} = useGetCategoriesQuery(null, {refetchOnMountOrArgChange: true});
 
   return (
+
     <main className='homePage'>
       {/*<Filter*/}
       {/*  products={filteredProducts}*/}

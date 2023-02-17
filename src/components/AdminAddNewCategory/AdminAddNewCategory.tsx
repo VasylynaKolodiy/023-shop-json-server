@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import {useAddNewCategoryMutation} from "../../store/products/products.api";
 import TextField from "@mui/material/TextField";
 import {Button} from "@mui/material";
+import AdminFormForCategory from "../AdminFormForCategory/AdminFormForCategory";
 
 const AdminAddNewCategory = () => {
 
   const initialCategory = {
+    id: 0,
     name: "",
-    visibleName: "",
     image: "https://api.lorem.space/image/shoes?w=640&h=480&r=6592"
   }
 
@@ -16,13 +17,12 @@ const AdminAddNewCategory = () => {
 
   const handleAddNewCategory = async () => {
     try {
-       if (newCategory.name && newCategory.visibleName && newCategory.image) {
+      if (newCategory.name && newCategory.image) {
         await addNewCategory(newCategory).unwrap()
-         setNewCategory(initialCategory)
+        setNewCategory(initialCategory)
+      } else {
+        alert("Fill in all fields, please")
       }
-       else{
-         alert("Fill in all fields, please")
-       }
     } catch (err) {
       alert(String(err));
     }
@@ -30,30 +30,7 @@ const AdminAddNewCategory = () => {
 
   return (
     <section className='admin'>
-
-      <TextField
-        label="Name"
-        type="text"
-        variant="standard"
-        value={newCategory.name}
-        onChange={(event) => setNewCategory({...newCategory, name: event.target.value})}
-      />
-
-      <TextField
-        label="VisibleName"
-        type="text"
-        variant="standard"
-        value={newCategory.visibleName || newCategory.name}
-        onChange={(event) => setNewCategory({...newCategory, visibleName: event.target.value})}
-      />
-
-      <TextField
-        label="Images"
-        type="text"
-        variant="standard"
-        value={newCategory.image}
-        onChange={(event) => setNewCategory({...newCategory, image: event.target.value})}
-      />
+      <AdminFormForCategory newCategory={newCategory} setNewCategory={setNewCategory}/>
 
       <Button
         className='admin__buttonAdd'

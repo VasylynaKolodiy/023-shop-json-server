@@ -15,7 +15,6 @@ export interface IProducts {
 export interface ICategories {
   id: number,
   name: string,
-  visibleName: string,
   image: string
 }
 

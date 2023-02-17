@@ -38,7 +38,6 @@ const AdminAddNewProduct = () => {
   return (
     <section className='admin'>
       <AdminFormForProduct newProduct={newProduct} setNewProduct={setNewProduct}/>
-
       <Button
         className='admin__buttonAdd'
         variant="outlined"

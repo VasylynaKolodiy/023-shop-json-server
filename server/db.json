@@ -123,7 +123,7 @@
     {
       "id": 17,
       "title": "Handmade Concrete Pizza",
-      "price": 505,
+      "price": 509,
       "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
       "category": "others",
       "images": [
@@ -131,7 +131,7 @@
         "https://api.lorem.space/image?w=640&h=480&r=2437",
         "https://api.lorem.space/image?w=640&h=480&r=4288"
       ],
-      "rating": 2,
+      "rating": 3,
       "stock": 80,
       "text": "<div class='text'><p>Nam tristique porta ligula, vel viverra sem eleifend nec. Nulla sed purus augue, eu euismod tellus. Nam mattis eros nec mi sagittis sagittis. Vestibulum suscipit cursus bibendum. Integer at justo eget sem auctor auctor eget vitae arcu. Nam tempor malesuada porttitor. Nulla quis dignissim ipsum. Aliquam pulvinar iaculis justo, sit amet interdum sem hendrerit vitae. Vivamus vel erat tortor. Nulla facilisi. In nulla quam, lacinia eu aliquam ac, aliquam in nisl.</p><h5><strong>Unordered list</strong></h5><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ul><h5><strong>Ordered list</strong></h5><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ol><p>In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat lacus. Nulla risus massa, commodo in imperdiet ut, ornare in leo. Duis pellentesque sagittis lorem, sed mollis lorem venenatis id.</p></div>"
     },
@@ -3247,9 +3247,9 @@
       "text": "<div class='text'><p>Nam tristique porta ligula, vel viverra sem eleifend nec. Nulla sed purus augue, eu euismod tellus. Nam mattis eros nec mi sagittis sagittis. Vestibulum suscipit cursus bibendum. Integer at justo eget sem auctor auctor eget vitae arcu. Nam tempor malesuada porttitor. Nulla quis dignissim ipsum. Aliquam pulvinar iaculis justo, sit amet interdum sem hendrerit vitae. Vivamus vel erat tortor. Nulla facilisi. In nulla quam, lacinia eu aliquam ac, aliquam in nisl.</p><h5><strong>Unordered list</strong></h5><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ul><h5><strong>Ordered list</strong></h5><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ol><p>In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat lacus. Nulla risus massa, commodo in imperdiet ut, ornare in leo. Duis pellentesque sagittis lorem, sed mollis lorem venenatis id.</p></div>"
     },
     {
-      "title": "Пицца",
+      "title": "Pizza",
       "price": 899,
-      "description": "Вкуснейшая пицца",
+      "description": "Pizza Hut",
       "category": "eat",
       "images": [
         "https://api.lorem.space/image?w=640&h=480&r=3878",
@@ -3262,131 +3262,59 @@
       "text": "<div class='text'><p>Nam tristique porta ligula, vel viverra sem eleifend nec. Nulla sed purus augue, eu euismod tellus. Nam mattis eros nec mi sagittis sagittis. Vestibulum suscipit cursus bibendum. Integer at justo eget sem auctor auctor eget vitae arcu. Nam tempor malesuada porttitor. Nulla quis dignissim ipsum. Aliquam pulvinar iaculis justo, sit amet interdum sem hendrerit vitae. Vivamus vel erat tortor. Nulla facilisi. In nulla quam, lacinia eu aliquam ac, aliquam in nisl.</p><h5><strong>Unordered list</strong></h5><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ul><h5><strong>Ordered list</strong></h5><ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Maecenas ullamcorper est et massa mattis condimentum.</li><li>Vestibulum sed massa vel ipsum imperdiet malesuada id tempus nisl.</li><li>Etiam nec massa et lectus faucibus ornare congue in nunc.</li><li>Mauris eget diam magna, in blandit turpis.</li></ol><p>In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat lacus. Nulla risus massa, commodo in imperdiet ut, ornare in leo. Duis pellentesque sagittis lorem, sed mollis lorem venenatis id.</p></div>"
     },
     {
-      "title": "Product 1",
-      "price": 12345,
-      "description": "Product 1 description",
-      "category": "eat",
+      "id": 240,
+      "title": "Toy Little Barny",
+      "price": 235,
+      "description": "Toy Little Barny Description",
+      "category": "toys",
       "images": [
         "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
       ],
-      "rating": 3,
-      "stock": 20,
-      "text": "Product 1 text",
-      "id": 240
-    },
-    {
-      "title": "Cacao",
-      "price": 323,
-      "description": "Cacao",
-      "category": "Cacao",
-      "images": [
-        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
-      ],
-      "rating": 2,
-      "stock": 13,
-      "text": "Cacao Cacao",
-      "id": 241
-    },
-    {
-      "title": "Product 2",
-      "price": 24,
-      "description": "Product 2 Description",
-      "category": "Milk",
-      "images": [
-        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
-      ],
-      "rating": 3,
-      "stock": 56,
-      "text": "Product 2 text",
-      "id": 242
-    },
-    {
-      "title": "aa",
-      "price": 1,
-      "description": "a",
-      "category": "ooa",
-      "images": [
-        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
-      ],
-      "rating": 1,
-      "stock": 1,
-      "text": "a",
-      "id": 243
-    },
-    {
-      "id": 244,
-      "title": "Product 3",
-      "price": 3453,
-      "description": "Product 3 description",
-      "category": "Cacao",
-      "images": [
-        "https://api.lorem.space/image/furniture?w=640&h=480&r=4053"
-      ],
-      "rating": 3,
-      "stock": 34,
-      "text": "Product 3 text"
+      "rating": 5,
+      "stock": 23,
+      "text": "Toy Little Barny Text"
     }
   ],
   "categories": [
     {
       "id": 1,
       "name": "",
-      "visibleName": "all products",
       "image": ""
     },
     {
       "id": 2,
       "name": "electronics",
-      "visibleName": "electronics",
       "image": "https://api.lorem.space/image/watch?w=640&h=480&r=768"
     },
     {
       "id": 3,
       "name": "furniture",
-      "visibleName": "furniture",
       "image": "https://api.lorem.space/image/furniture?w=640&h=480&r=5582"
     },
     {
       "id": 4,
       "name": "shoes",
-      "visibleName": "shoes",
       "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592"
     },
     {
       "id": 5,
       "name": "others",
-      "visibleName": "others",
       "image": "https://api.lorem.space/image?w=640&h=480&r=5023"
     },
     {
       "id": 6,
       "name": "clothes",
-      "visibleName": "clothes",
       "image": "https://api.lorem.space/image?w=640&h=480&r=5023"
     },
     {
       "name": "eat",
-      "visibleName": "eat",
       "image": "https://api.lorem.space/image/pizza?w=150&h=150",
       "id": 7
     },
     {
-      "name": "Cacao",
-      "visibleName": "Cacaoik",
-      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592",
-      "id": 8
-    },
-    {
-      "name": "Milk",
-      "visibleName": "Milks",
-      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592",
-      "id": 9
-    },
-    {
-      "name": "ooa",
-      "visibleName": "ooa",
-      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592",
-      "id": 10
+      "id": 8,
+      "name": "toys",
+      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=6592"
     }
   ],
   "users": [
@@ -3569,31 +3497,31 @@
       "avatar": "https://avatars.githubusercontent.com/u/106997950?s=400&u=846ebadef5d18e9fdcb63dd84cd809e2fb8a0296&v=4",
       "basket": [
         {
-          "id": 138,
-          "title": "Gorgeous Granite Shoes",
-          "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=9295",
-          "price": 642,
-          "col": 1
-        },
-        {
-          "id": 243,
-          "title": "aa",
-          "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
-          "price": 1,
-          "col": 2
-        },
-        {
           "id": 8,
           "title": "Luxury furniture",
           "img": "https://api.lorem.space/image/furniture?w=640&h=480&r=4053",
           "price": 19999,
-          "col": 1
+          "col": 3
         },
         {
           "id": 10,
           "title": "Small Concrete Cheese",
           "img": "https://api.lorem.space/image?w=640&h=480&r=8265",
           "price": 957,
+          "col": 3
+        },
+        {
+          "id": 239,
+          "title": "Пицца",
+          "img": "https://api.lorem.space/image?w=640&h=480&r=3878",
+          "price": 899,
+          "col": 3
+        },
+        {
+          "id": 17,
+          "title": "Handmade Concrete Pizza",
+          "img": "https://api.lorem.space/image?w=640&h=480&r=3718",
+          "price": 509,
           "col": 1
         }
       ],

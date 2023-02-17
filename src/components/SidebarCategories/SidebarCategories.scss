@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   border: 1px solid #EAEAEA;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   border-radius: 5px;
@@ -14,15 +14,16 @@
   top: 100px;
   left: 0;
 
-  &__title{
+  &__title {
     padding: 0 30px;
   }
 
-  &__category{
+  &__category {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0;
+    position: relative;
     color: black;
     height: 34px;
     width: 100%;
@@ -30,7 +31,7 @@
     transition: .3s linear;
     cursor: pointer;
 
-    &::after{
+    &::after {
       content: "";
       width: 0;
       height: 0;
@@ -45,10 +46,15 @@
       opacity: 0;
     }
 
-    &:hover{
+    &:hover {
       background-color: darkgray;
       color: white;
       box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+      .sidebar__edit {
+        display: block;
+      }
+
       &::after {
         opacity: 1;
       }
@@ -59,8 +65,31 @@
     background-color: darkgray;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+    .sidebar__edit {
+      display: block;
+    }
+
     &::after {
       opacity: 1;
+    }
+  }
+
+  &__edit {
+    display: none;
+    position: absolute;
+    z-index: 20;
+    cursor: pointer;
+    right: 16px;
+    top: 8px;
+  }
+
+  &__edit svg {
+    width: 15px;
+    height: 15px;
+
+    & path {
+      fill: white;
     }
   }
 

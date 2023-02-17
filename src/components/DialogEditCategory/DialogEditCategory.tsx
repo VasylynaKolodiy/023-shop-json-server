@@ -1,35 +1,39 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
-import AdminFormForProduct from "../AdminFormForProduct/AdminFormForProduct";
-import {IProducts} from "../../models/Interfaces";
+import {ICategories, IProducts} from "../../models/Interfaces";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
-import {useEditProductMutation, useLazyGetDetailProductQuery} from "../../store/products/products.api";
+import AdminFormForCategory from "../AdminFormForCategory/AdminFormForCategory";
+import {useEditCategoryMutation, useLazyGetCategoriesQuery} from "../../store/products/products.api";
 
-interface IDialogEditProduct {
-  product: IProducts,
+interface IDialogEditCategory {
+  category: ICategories,
   openEditor: boolean,
   setOpenEditor: (isOpenEditor: boolean) => void
 }
 
-const DialogEditProduct: React.FC<IDialogEditProduct> = ({product, openEditor, setOpenEditor}) => {
+const DialogEditCategory: React.FC<IDialogEditCategory> = ({category, openEditor, setOpenEditor}) => {
 
-  const [editProduct, setEditProduct] = useState(product)
-  const [editProductInfo] = useEditProductMutation();
-  const [getProductInfo] = useLazyGetDetailProductQuery();
+  const [newCategory, setNewCategory] = useState(category)
+  const [editCategoryInfo] = useEditCategoryMutation();
+  const [getCategoryInfo] = useLazyGetCategoriesQuery();
+
+  useEffect(() => {
+    if(category) setNewCategory(category)
+  }, [category])
+
   const handleCloseEditor = () => {
     setOpenEditor(false)
   }
 
-  const handleEditProduct = async () => {
+  const handleEditCategory = async () => {
     try {
-      if (editProduct.title && editProduct.category && editProduct.price && editProduct.description &&
-        editProduct.rating && editProduct.stock && editProduct.images && editProduct.text) {
-        await editProductInfo(editProduct).unwrap()
-        getProductInfo(String(editProduct.id))
+      if (newCategory.name && newCategory.image) {
+        await editCategoryInfo(newCategory).unwrap()
+        getCategoryInfo(String(newCategory.id))
         setOpenEditor(false)
       } else {
         alert("Fill in all fields, please")
@@ -49,7 +53,7 @@ const DialogEditProduct: React.FC<IDialogEditProduct> = ({product, openEditor, s
       </DialogTitle>
 
       <DialogContent>
-        <AdminFormForProduct newProduct={editProduct} setNewProduct={setEditProduct}/>
+        <AdminFormForCategory newCategory={newCategory} setNewCategory={setNewCategory}/>
       </DialogContent>
 
       <DialogActions>
@@ -64,7 +68,7 @@ const DialogEditProduct: React.FC<IDialogEditProduct> = ({product, openEditor, s
         <div className='dialogEditor__order'>
           <Button
             className="dialogEditor__buttonOrder"
-            onClick={handleEditProduct}
+            onClick={handleEditCategory}
             variant="outlined"
             // disabled={}
           >
@@ -77,4 +81,4 @@ const DialogEditProduct: React.FC<IDialogEditProduct> = ({product, openEditor, s
   );
 };
 
-export default DialogEditProduct;
+export default DialogEditCategory;

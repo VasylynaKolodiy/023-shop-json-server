@@ -18,6 +18,7 @@ import DialogRegister from "../DialogRegister/DialogRegister";
 import {ReactComponent as BasketIcon} from "../../assets/img/basket.svg"
 import DialogBasket from "../DialogBasket/DialogBasket";
 import {IProductInfo} from "../../models/Interfaces";
+import {Badge} from "@mui/material";
 
 const Header = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -36,6 +37,8 @@ const Header = () => {
     logoutUser({})
     setAnchorElUser(null);
   };
+
+  let badgeContentValue = user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || 0
 
   return (
     <header className='header container'>
@@ -111,11 +114,18 @@ const Header = () => {
               </Box>
             }
 
+            {/*<Box className="header__basketBox" onClick={() => openBasket(true)}>*/}
+            {/*  {user.basket ? <div*/}
+            {/*    className='header__basketCount'>{user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || ''}</div> : ''}*/}
+            {/*  <BasketIcon/>*/}
+            {/*</Box>*/}
+
             <Box className="header__basketBox" onClick={() => openBasket(true)}>
-              {user.basket ? <div
-                className='header__basketCount'>{user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || ''}</div> : ''}
-              <BasketIcon/>
+              <Badge invisible={badgeContentValue<=0} badgeContent={badgeContentValue} color="success">
+                <BasketIcon/>
+              </Badge>
             </Box>
+
 
             <DialogBasket/>
 

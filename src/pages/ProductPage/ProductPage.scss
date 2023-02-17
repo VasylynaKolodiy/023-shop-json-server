@@ -113,13 +113,15 @@
   }
 
   &__inBasket svg {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   &__edit svg {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
 
   .slick-dots {
@@ -147,15 +149,11 @@
   li.slick-active img {
     border: 3px solid gray;
   }
-
-
 }
 
-.MuiDialog-container.MuiDialog-scrollPaper {
-  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm {
-    width: 1000px !important;
-    max-width: 1000px !important;
-  }
+.dialogEditor .MuiPaper-root {
+  width: 1000px !important;
+  max-width: 1000px !important;
 }
 
 .MuiDialogActions-root {

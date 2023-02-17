@@ -30,7 +30,7 @@ export const productsApi = createApi({
     }),
     filterProductsByCategory: build.query({
       query: ({catName, pageNumber}) => ({
-        url: `/products?${catName ? 'category=' + catName : ''}&_limit=${LIMIT}&_page=${pageNumber}`
+        url: `/products?${catName ? `category=${catName}` : ''}&_limit=${LIMIT}&_page=${pageNumber}`
       }),
 
       transformResponse(response: IProducts[], meta: FetchBaseQueryMeta) {
@@ -41,7 +41,7 @@ export const productsApi = createApi({
     getUser: build.query({
       query: ({email, password}) => ({
         // url: `/users?email=${email}${password ? '&password='+password : ''}`,
-        url: `/users?email=${email}${password ? `&password=${password}`: ''}`,
+        url: `/users?email=${email}${password ? `&password=${password}` : ''}`,
       })
     }),
 
@@ -63,7 +63,7 @@ export const productsApi = createApi({
 
     addNewProduct: build.mutation({
       query: (body) => ({
-        url: `/products/`,
+        url: `/products`,
         method: 'POST',
         body
       })
@@ -71,7 +71,7 @@ export const productsApi = createApi({
 
     addNewCategory: build.mutation({
       query: (body) => ({
-        url: `/categories/`,
+        url: `/categories`,
         method: 'POST',
         body
       })
@@ -85,6 +85,14 @@ export const productsApi = createApi({
       })
     }),
 
+    editCategory: build.mutation({
+      query: (body) => ({
+        url: `/categories/${body.id}`,
+        method: 'PATCH',
+        body
+      })
+    }),
+
   })
 })
 export const {
@@ -92,6 +100,7 @@ export const {
   useGetDetailProductQuery,
   useLazyGetDetailProductQuery,
   useGetCategoriesQuery,
+  useLazyGetCategoriesQuery,
   useFilterProductsByCategoryQuery,
   useLazyGetUserQuery,
   useAddUserMutation,
@@ -99,4 +108,5 @@ export const {
   useAddNewProductMutation,
   useAddNewCategoryMutation,
   useEditProductMutation,
+  useEditCategoryMutation,
 } = productsApi

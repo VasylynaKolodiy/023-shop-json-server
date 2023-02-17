@@ -81,7 +81,7 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
 
               <input
                 className="basketItem__input"
-                type="number"
+                type="text"
                 value={user.basket[index].col}
                 min={1}
                 readOnly={true}
