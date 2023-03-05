@@ -41,7 +41,7 @@ const Header = () => {
   let badgeContentValue = user?.basket?.reduce((sum: number, elem: IProductInfo) => sum + elem.col, 0) || 0
 
   return (
-    <header className='header container'>
+    <header className='header'>
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
