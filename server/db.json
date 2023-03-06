@@ -3495,24 +3495,68 @@
       "name": "Velissa",
       "role": "admin",
       "avatar": "https://avatars.githubusercontent.com/u/106997950?s=400&u=846ebadef5d18e9fdcb63dd84cd809e2fb8a0296&v=4",
-      "basket": [
-        {
-          "id": 239,
-          "title": "Пицца",
-          "img": "https://api.lorem.space/image?w=640&h=480&r=3878",
-          "price": 899,
-          "col": 2
-        },
-        {
-          "id": 17,
-          "title": "Handmade Concrete Pizza",
-          "img": "https://api.lorem.space/image?w=640&h=480&r=3718",
-          "price": 509,
-          "col": 1
-        }
-      ],
+      "basket": [],
       "GeneralsumInBasket": 0,
       "history": {
+        "Mon Mar 06 2023 22:15:10 GMT+0100 (Central European Standard Time)": [
+          {
+            "id": 69,
+            "title": "Apple watch SE",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=7292",
+            "price": 23999,
+            "col": 1
+          }
+        ],
+        "Mon Mar 06 2023 22:12:32 GMT+0100 (Central European Standard Time)": [
+          {
+            "id": 69,
+            "title": "Apple watch SE",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=7292",
+            "price": 23999,
+            "col": 1
+          }
+        ],
+        "Mon Mar 06 2023 22:12:15 GMT+0100 (Central European Standard Time)": [
+          {
+            "id": 89,
+            "title": "Handcrafted Cotton Chicken",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=8707",
+            "price": 506,
+            "col": 1
+          },
+          {
+            "id": 25,
+            "title": "Small Plastic Keyboard",
+            "img": "https://api.lorem.space/image/shoes?w=640&h=480&r=1139",
+            "price": 889,
+            "col": 2
+          }
+        ],
+        "Mon Mar 06 2023 21:55:49 GMT+0100 (Central European Standard Time)": [
+          {
+            "id": 89,
+            "title": "Handcrafted Cotton Chicken",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=8707",
+            "price": 506,
+            "col": 1
+          }
+        ],
+        "Mon Mar 06 2023 21:52:33 GMT+0100 (Central European Standard Time)": [
+          {
+            "id": 239,
+            "title": "Пицца",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=3878",
+            "price": 899,
+            "col": 27
+          },
+          {
+            "id": 17,
+            "title": "Handmade Concrete Pizza",
+            "img": "https://api.lorem.space/image?w=640&h=480&r=3718",
+            "price": 509,
+            "col": 9
+          }
+        ],
         "Thu Feb 16 2023 20:49:39 GMT+0100 (Central European Standard Time)": [
           {
             "id": 96,

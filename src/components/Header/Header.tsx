@@ -19,6 +19,7 @@ import {ReactComponent as BasketIcon} from "../../assets/img/basket.svg"
 import DialogBasket from "../DialogBasket/DialogBasket";
 import {IProductInfo} from "../../models/Interfaces";
 import {Badge} from "@mui/material";
+import SuccessSnackBar from "../SuccessSnackBar/SuccessSnackBar";
 
 const Header = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -27,6 +28,7 @@ const Header = () => {
   const {logoutUser} = useActions()
   const user = useAppSelector((state) => state.auth.user);
   const {openBasket} = useActions()
+  const [openAlertSuccess, setOpenAlertSuccess] = useState(false);
 
   const handleOpenUserMenu = ({event}: { event: any }) => {
     setAnchorElUser(event.currentTarget);
@@ -106,6 +108,7 @@ const Header = () => {
                 <DialogLogin
                   openLogin={openLogin}
                   setOpenLogin={setOpenLogin}
+                  setOpenAlertSuccess={setOpenAlertSuccess}
                 />
                 <DialogRegister
                   openRegister={openRegister}
@@ -119,12 +122,26 @@ const Header = () => {
                 <BasketIcon/>
               </Badge>
             </Box>
-
-            <DialogBasket/>
+            <DialogBasket setOpenAlertSuccess={setOpenAlertSuccess}/>
 
           </Toolbar>
         </Container>
       </AppBar>
+
+      <SuccessSnackBar
+          openAlertSuccess={openAlertSuccess}
+          setOpenAlertSuccess={setOpenAlertSuccess}
+          title='Congratulations'
+          text='You entered the correct login.'
+      />
+
+      <SuccessSnackBar
+          openAlertSuccess={openAlertSuccess}
+          setOpenAlertSuccess={setOpenAlertSuccess}
+          title='Order successful'
+          text='Thank you so much for your order.'
+      />
+
     </header>
   );
 };

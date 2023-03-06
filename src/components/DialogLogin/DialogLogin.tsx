@@ -9,25 +9,25 @@ import Button from "@mui/material/Button";
 import {useLazyGetUserQuery} from "../../store/products/products.api";
 import {useActions} from "../../hooks/actions";
 import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
-import {Alert, AlertTitle, Snackbar} from "@mui/material";
 
 interface IDialogLoginProps {
     openLogin: boolean,
-    setOpenLogin: (isOpenLogin: boolean) => void
+    setOpenLogin: (isOpenLogin: boolean) => void,
+    setOpenAlertSuccess: (isOpenLogin: boolean) => void
 }
 
-const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => {
+const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin, setOpenAlertSuccess}) => {
     const [dataEmail, setDataEmail] = useState('')
     const [dataPassword, setDataPassword] = useState('')
     const [getUser] = useLazyGetUserQuery();
     const {setUser} = useActions()
-    const [openAlertSuccess, setOpenAlertSuccess] = useState(false);
 
     const handleLogin = async () => {
         try {
             let result = await getUser({email: dataEmail, password: dataPassword});
+
             if (result.data.length) {
-                // setOpenLogin(false);
+                setOpenLogin(false);
                 setUser(result.data[0])
                 setOpenAlertSuccess(true);
             } else {
@@ -79,17 +79,6 @@ const DialogLogin: React.FC<IDialogLoginProps> = ({openLogin, setOpenLogin}) => 
                 <Button variant="outlined" onClick={() => handleCloseLogin()}>Cancel</Button>
                 <Button variant="outlined" onClick={handleLogin}>Login</Button>
             </DialogActions>
-
-            <Snackbar
-                anchorOrigin={{vertical: "top", horizontal: "center"}}
-                open={openAlertSuccess} autoHideDuration={6000}
-                onClose={() => setOpenAlertSuccess(false)}
-            >
-                <Alert onClose={() => setOpenAlertSuccess(false)} severity="success" sx={{width: '100%'}}>
-                    <AlertTitle>Success</AlertTitle>
-                    Successful <strong>login!</strong>
-                </Alert>
-            </Snackbar>
 
         </Dialog>
     );

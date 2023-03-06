@@ -79,13 +79,17 @@ const BasketItem: React.FC<IBasketItemProps> = ({index}) => {
                 <PlusIcon/>
               </Button>
 
-              <input
-                className="basketItem__input"
-                type="text"
-                value={user.basket[index].col}
-                min={1}
-                readOnly={true}
-              />
+              {/*<input*/}
+              {/*  className="basketItem__input"*/}
+              {/*  type="text"*/}
+              {/*  value={user.basket[index].col}*/}
+              {/*  min={1}*/}
+              {/*  readOnly={true}*/}
+              {/*/>*/}
+
+                <div className="basketItem__input">
+                    {user.basket[index].col}
+                </div>
 
               <Button
                 className="basketItem__minus"

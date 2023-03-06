@@ -33,6 +33,7 @@
   }
 
   &__link {
+    display: inline;
     font-size: 18px;
     color: black;
     width: 100%;
@@ -59,17 +60,17 @@
   }
 
   &__input {
-    width: 60px;
-    height: 40px;
+    padding: 7px 25px;
     text-align: center;
-    cursor: alias;
+    border: 1px solid gray;
+    border-radius: 5px;
+    min-width: 70px;
   }
 
   &__input:focus-visible{
     border: 1px solid black;
     outline-offset: 0;
     outline: 0;
-
   }
 
   &__minus,

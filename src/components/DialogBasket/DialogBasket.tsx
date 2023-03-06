@@ -12,7 +12,11 @@ import {ReactComponent as CloseIcon} from "../../assets/img/close.svg";
 import {useActions} from "../../hooks/actions";
 import {useEditBasketMutation} from "../../store/products/products.api";
 
-const DialogBasket = () => {
+interface IDialogBasketProps {
+  setOpenAlertSuccess: (isOpenLogin: boolean) => void
+}
+
+const DialogBasket: React.FC<IDialogBasketProps> = ({setOpenAlertSuccess}) => {
   const {openBasket} = useActions()
   const isOpen = useAppSelector((state) => state.auth.isOpenBasket);
   const [editHistory] = useEditBasketMutation();
@@ -44,6 +48,7 @@ const DialogBasket = () => {
       }).unwrap()
       setUser(result)
       openBasket(false)
+      setOpenAlertSuccess(true);
     } catch (err) {
       alert(String(err));
     }
