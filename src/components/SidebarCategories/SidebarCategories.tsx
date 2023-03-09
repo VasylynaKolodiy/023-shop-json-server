@@ -10,16 +10,18 @@ interface ISidebarCategories {
   setCatName: (name: string) => void,
   catName: string,
   setPageNumber: (page: number) => void,
+  setSearch: (title: string) => void,
 }
 
-const SidebarCategories: React.FC<ISidebarCategories> = ({categories, catName, setCatName, setPageNumber}) => {
+const SidebarCategories: React.FC<ISidebarCategories> = ({categories, catName, setCatName, setPageNumber, setSearch}) => {
   const user = useAppSelector((state) => state.auth.user);
   const [openEditor, setOpenEditor] = useState(false)
   const [indexCategory, setIndexCategory] = useState(0)
 
   const changeCategory = (category: string) => {
     setPageNumber(1);
-    setCatName(category)
+    setCatName(category);
+    setSearch('')
   }
 
   const onClickEditCategory = (index: number) => {
@@ -28,9 +30,6 @@ const SidebarCategories: React.FC<ISidebarCategories> = ({categories, catName, s
   }
 
   // const activeCategory = categories.filter((cat) => cat.name === catName)
-
-
-   console.log(indexCategory, "indexCategory")
 
   return (
     <aside className='sidebar'>
